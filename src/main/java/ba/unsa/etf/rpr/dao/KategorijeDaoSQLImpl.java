@@ -2,8 +2,7 @@ package ba.unsa.etf.rpr.dao;
 
 import ba.unsa.etf.rpr.domain.Kategorije;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
+import java.sql.*;
 
 public class KategorijeDaoSQLImpl extends KategorijeDao {
 
@@ -20,6 +19,23 @@ public class KategorijeDaoSQLImpl extends KategorijeDao {
 
     @Override
     public Kategorije getById(int id) {
+        String query = "SELECT * FROM categories WHERE id = ?";
+        try{
+            PreparedStatement stmt = this.konekcija.prepareStatement(query);
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()){ // result set is iterator.
+                Kategorije category = new Kategorije();
+                category.setKategorija_id(rs.getInt("id"));
+                category.setIme(rs.getString("ime"));
+                rs.close();
+                return category;
+            }else{
+                return null; // if there is no elements in the result set return null
+            }
+        }catch (SQLException e){
+            e.printStackTrace(); // poor error handling
+        }
         return null;
     }
 
