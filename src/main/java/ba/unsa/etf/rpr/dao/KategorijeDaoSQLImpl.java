@@ -23,6 +23,16 @@ public class KategorijeDaoSQLImpl extends KategorijeDao {
         return null;
     }
 
+    @Override
+    public Kategorije add(Kategorije item) {
+        return null;
+    }
+
+    @Override
+    public Kategorije update(Kategorije item) {
+        return null;
+    }
+
 
     }
 
