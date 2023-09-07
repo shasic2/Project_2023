@@ -79,7 +79,7 @@
                   </GridPane>
                </buttons>
             </ButtonBar>
-            <Label>
+            <Label prefHeight="18.0" prefWidth="53.0" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets top="100.0" />
                </GridPane.margin>
@@ -97,7 +97,7 @@
                   <Insets right="30.0" top="50.0" />
                </GridPane.margin>
             </PasswordField>
-            <Label fx:id="GreskaId" GridPane.rowIndex="3" />
+            <Label fx:id="GreskaId" prefHeight="18.0" prefWidth="42.0" GridPane.rowIndex="3" />
          </children>
       </GridPane>
    </right>
