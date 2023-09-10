@@ -14,7 +14,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.controllers.ONamaController">
    <top>
-      <GridPane prefHeight="71.0" prefWidth="579.0" style="-fx-background-color: #496943;" BorderPane.alignment="CENTER">
+      <GridPane prefHeight="71.0" prefWidth="579.0" style="-fx-background-color: #5B8F52;" BorderPane.alignment="CENTER">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -23,16 +23,16 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <ButtonBar prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #496943;" GridPane.columnIndex="1">
+            <ButtonBar prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #5B8F52;" GridPane.columnIndex="1">
               <buttons>
-                <Button mnemonicParsing="false" style="-fx-background-color: #75ac75;" text="O Nama" textFill="#496943" translateX="-20.0" underline="true">
+                <Button mnemonicParsing="false" style="-fx-background-color: #9CC23E;" text="O Nama" textFill="#5b8f52" translateX="-20.0" underline="true">
                      <font>
-                        <Font name="Arial" size="14.0" />
+                        <Font name="Arial Bold" size="14.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" style="-fx-background-color: #75ac75;" text="Pomoć" textFill="#496943" translateX="-20.0">
+                  <Button mnemonicParsing="false" style="-fx-background-color: #9CC23E;" text="Pomoć" textFill="#5b8f52" translateX="-20.0">
                      <font>
-                        <Font name="Arial" size="14.0" />
+                        <Font name="Arial Bold" size="14.0" />
                      </font>
                   </Button>
               </buttons>
@@ -47,13 +47,13 @@
       </GridPane>
    </top>
    <left>
-      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
-         <image>
-            <Image url="@../images/Clothing.png" />
-         </image>
+      <ImageView fitHeight="142.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
          <BorderPane.margin>
-            <Insets bottom="100.0" left="80.0" right="50.0" />
+            <Insets bottom="100.0" left="80.0" right="50.0" top="20.0" />
          </BorderPane.margin>
+         <image>
+            <Image url="@../images/Healthy.png" />
+         </image>
       </ImageView>
    </left>
    <center>
@@ -67,7 +67,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label prefHeight="226.0" prefWidth="337.0" text="Mi smo strastveni tim entuzijasta za modu koji je svoju&#10;ljubav prema raznolikosti brendova pretvorio u stvarnost.&#10;U doba korone, osjetili smo potrebu za stvaranjem &#10;prostora koji će okupiti vrhunske brendove na jednom&#10;mjestu. Naš online shop je plod te vizije, mjesto&#10;gdje se kvaliteta, inovacija i stil susreću.&#10;S ponosom vam predstavljamo našu paletu odabranih &#10;brandova koji dijele našu strast. &#10;Dobrodošli u naš svijet mode&#10;" textAlignment="JUSTIFY" GridPane.rowIndex="1" GridPane.rowSpan="2">
+            <Label prefHeight="226.0" prefWidth="337.0" text="Healthy shop su pokrenute 2018. godine kao&#10;online prodavnica sa fokusom na &#10;promovisanje zdravog načina života kroz &#10;lokalno uzgajane namirnice, hrskave &#10;grickalice i osvežavajuće napitke.&#10;Danas smo omiljeni izvor visokokvalitetne&#10;hrane za našu online zajednicu.&#10;" textAlignment="JUSTIFY" GridPane.rowIndex="1" GridPane.rowSpan="2">
                <GridPane.margin>
                   <Insets bottom="100.0" />
                </GridPane.margin>
@@ -75,7 +75,7 @@
                   <Font name="Arial" size="13.0" />
                </font>
             </Label>
-            <Button fx:id="ZatvoriId" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#ZatvaranjeProzora" text="Zatvori" textAlignment="RIGHT" GridPane.rowIndex="2">
+            <Button fx:id="ZatvoriId" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#ZatvaranjeProzora" text="Zatvori" textAlignment="RIGHT" translateX="-50.0" GridPane.rowIndex="2">
                <font>
                   <Font name="Arial" size="14.0" />
                </font>
