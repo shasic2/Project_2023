@@ -17,13 +17,13 @@
 
 <BorderPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.controllers.PocetnaController">
    <center>
-      <ImageView fitHeight="218.0" fitWidth="195.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
-         <image>
-            <Image url="@../images/Clothing.png" />
-         </image>
+      <ImageView fitHeight="227.0" fitWidth="209.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets left="100.0" right="200.0" />
          </BorderPane.margin>
+         <image>
+            <Image url="@../images/Healthy.png" />
+         </image>
       </ImageView>
    </center>
    <right>
@@ -44,7 +44,7 @@
                   <Insets right="30.0" top="60.0" />
                </GridPane.margin>
             </TextField>
-            <Label text="E-mail:" textFill="#496943">
+            <Label text="E-mail:" textFill="#5b8f52">
                <font>
                   <Font name="Arial Bold Italic" size="13.0" />
                </font>
@@ -52,7 +52,7 @@
                   <Insets left="5.0" top="152.0" />
                </GridPane.margin>
             </Label>
-            <Label text="Password:" textFill="#496943" GridPane.rowIndex="2">
+            <Label text="Password:" textFill="#5b8f52" GridPane.rowIndex="2">
                <font>
                   <Font name="Arial Bold Italic" size="12.0" />
                </font>
@@ -71,7 +71,7 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Button fx:id="BtnRegistracija" mnemonicParsing="false" onAction="#akcijaRegistracije" text="Registruj se" textFill="#496943" translateX="-30.0" translateY="-30.0" GridPane.columnIndex="1">
+                        <Button fx:id="BtnRegistracija" mnemonicParsing="false" onAction="#akcijaRegistracije" text="Registruj se" textFill="#5b8f52" translateX="-30.0" translateY="-30.0" GridPane.columnIndex="1">
                            <font>
                               <Font size="13.0" />
                            </font></Button>
@@ -84,7 +84,7 @@
                   <Insets top="100.0" />
                </GridPane.margin>
             </Label>
-          <Button fx:id="BtnPrijava" mnemonicParsing="false" onAction="#akcijaPrijave" text="Prijavi se" textAlignment="JUSTIFY" textFill="#496943" GridPane.rowIndex="3">
+          <Button fx:id="BtnPrijava" mnemonicParsing="false" onAction="#akcijaPrijave" text="Prijavi se" textAlignment="JUSTIFY" textFill="#5b8f52" GridPane.rowIndex="3">
                <font>
                   <Font name="Arial" size="13.0" />
                </font>
@@ -102,15 +102,15 @@
       </GridPane>
    </right>
    <top>
-      <AnchorPane style="-fx-background-color: #496943;" BorderPane.alignment="CENTER">
+      <AnchorPane style="-fx-background-color: #5B8F52;" BorderPane.alignment="CENTER">
          <children>
             <ButtonBar layoutX="382.0" layoutY="90.0" prefHeight="40.0" prefWidth="200.0" translateX="100.0" translateY="-40.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="382.0" AnchorPane.rightAnchor="122.0" AnchorPane.topAnchor="90.0">
               <buttons>
-                <Button fx:id="ONamaId" mnemonicParsing="false" onAction="#OtvaranjeONama" style="-fx-background-color: #75ac75;" text="O nama" textFill="#496943">
+                <Button fx:id="ONamaId" mnemonicParsing="false" onAction="#OtvaranjeONama" style="-fx-background-color: #9CC23E;" text="O nama" textFill="#5b8f52">
                      <font>
-                        <Font name="Arial" size="14.0" />
+                        <Font name="Arial Bold" size="14.0" />
                      </font></Button>
-                  <Button fx:id="pomocId" mnemonicParsing="false" onAction="#OtvaranjePomoci" style="-fx-background-color: #75ac75;" text="Pomoć" textFill="#496943">
+                  <Button fx:id="pomocId" mnemonicParsing="false" onAction="#OtvaranjePomoci" style="-fx-background-color: #9CC23E;" text="Pomoć" textFill="#5b8f52">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -135,7 +135,7 @@
       </AnchorPane>
    </top>
    <bottom>
-      <Label text="Još uvijek nemate račun?" textFill="#496943" translateX="150.0" translateY="-75.0" BorderPane.alignment="CENTER">
+      <Label text="Još uvijek nemate račun?" textFill="#5b8f52" translateX="150.0" translateY="-75.0" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets />
          </BorderPane.margin>
