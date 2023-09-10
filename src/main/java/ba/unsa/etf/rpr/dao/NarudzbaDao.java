@@ -1,4 +1,7 @@
 package ba.unsa.etf.rpr.dao;
 
-public class NarudzbaDao {
+import ba.unsa.etf.rpr.domain.Narudzba;
+
+public abstract class NarudzbaDao {
+
 }
