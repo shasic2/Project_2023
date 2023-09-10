@@ -1,4 +1,7 @@
 package ba.unsa.etf.rpr.dao;
 
-public class KorisnikDao {
+import ba.unsa.etf.rpr.domain.Korisnik;
+
+public abstract class KorisnikDao {
+
 }
