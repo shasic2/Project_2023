@@ -5,6 +5,7 @@ import ba.unsa.etf.rpr.exceptions.HealthyShopException;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -49,5 +50,10 @@ public class ProizvodiDaoSQLImpl extends AbstractDao<Proizvodi> implements Proiz
         item.put("id_kategorija", object.getKategorija_id());
         item.put("cijena", object.getCijena());
         return item;
+    }
+
+    @Override
+    public List<Proizvodi> pronadjiProizvodPoKategoriji(int id) throws HealthyShopException{
+        return executeQuery("SELECT * from Proizvodi WHERE categories_Id = ?", new Object[]{id});
     }
 }
