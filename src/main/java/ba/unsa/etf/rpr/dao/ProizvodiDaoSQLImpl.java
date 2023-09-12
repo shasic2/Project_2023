@@ -56,4 +56,9 @@ public class ProizvodiDaoSQLImpl extends AbstractDao<Proizvodi> implements Proiz
     public List<Proizvodi> pronadjiProizvodPoKategoriji(int id) throws HealthyShopException{
         return executeQuery("SELECT * from Proizvodi WHERE categories_Id = ?", new Object[]{id});
     }
+
+    @Override
+    public List<Proizvodi> pronadjiProizvod(String ime) throws HealthyShopException {
+        return executeQuery("SELECT * FROM Proizvod WHERE ime LIKE concat('%', ?, '%')", new Object[]{ime});
+    }
 }
