@@ -54,6 +54,11 @@ public class NarudzbaDaoSQLImpl extends  AbstractDao<Narudzba> implements Narudz
     public List<Narudzba> pronadjiPoID(int id) throws HealthyShopException {
         return executeQuery("SELECT * from Narudzba WHERE idNarudzba = ?", new Object[]{id});
     }
+
+    @Override
+    public List<Narudzba> pronadjiNarudzbuPoKorisniku(int id) throws HealthyShopException{
+        return executeQuery("SELECT * from Narudzba WHERE korisnik_id = ?", new Object[]{id});
+    }
 }
 
 
