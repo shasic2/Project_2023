@@ -8,13 +8,35 @@ import java.util.Map;
 
 public class NarudzbaDaoSQLImpl extends  AbstractDao<Narudzba> implements NarudzbaDao  {
 
-    public NarudzbaDaoSQLImpl(String tableName) {
-        super(tableName);
+    private static NarudzbaDaoSQLImpl instance = null;
+
+    public NarudzbaDaoSQLImpl() {
+        super("Narudzba");
+    }
+
+    public static NarudzbaDaoSQLImpl getInstance(){
+        if(instance == null)
+            instance = new NarudzbaDaoSQLImpl();
+        return instance;
+    }
+
+    public static void removeInstance()
+    {
+        if(instance != null)
+            instance = null;
     }
 
     @Override
     public Narudzba row2object(ResultSet rs) throws HealthyShopException {
-        return null;
+        try {
+            Narudzba narudzba = new Narudzba();
+            narudzba.setId(rs.getInt("id"));
+            narudzba.setRacun(Integer.parseInt(rs.getString("racun")));
+            narudzba.setKorisnik_id((Integer) DaoFactory.korisnikDao().getById(rs.getInt("id_korisnik")));
+            return narudzba;
+        } catch (Exception e) {
+            throw new HealthyShopException(e.getMessage(), e);
+        }
     }
 
     @Override
