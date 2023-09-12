@@ -6,6 +6,7 @@ import ba.unsa.etf.rpr.exceptions.HealthyShopException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class ProizvodiDaoSQLImpl extends AbstractDao<Proizvodi> implements ProizvodiDao  {
 
@@ -41,6 +42,12 @@ public class ProizvodiDaoSQLImpl extends AbstractDao<Proizvodi> implements Proiz
 
     @Override
     public Map<String, Object> object2row(Proizvodi object) {
-        return null;
+        Map<String, Object> item = new TreeMap<>();
+        item.put("id", object.getId());
+        item.put("ime", object.getIme());
+        item.put("opis", object.getOpis());
+        item.put("id_kategorija", object.getKategorija_id());
+        item.put("cijena", object.getCijena());
+        return item;
     }
 }
