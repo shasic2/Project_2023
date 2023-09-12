@@ -26,7 +26,17 @@ public class ProizvodiDaoSQLImpl extends AbstractDao<Proizvodi> implements Proiz
 
     @Override
     public Proizvodi row2object(ResultSet rs) throws HealthyShopException, SQLException {
-     return null;
+        try {
+            Proizvodi proizvod = new Proizvodi();
+            proizvod.setId(rs.getInt("id"));
+            proizvod.setIme(rs.getString("ime"));
+            proizvod.setOpis(rs.getString("opis"));
+            proizvod.setKategorija_id((Integer) DaoFactory.KategorijeDao().getById(rs.getInt("categories_Id")));
+            proizvod.setCijena(Integer.parseInt(rs.getString("cijena")));
+            return proizvod;
+        } catch (Exception e) {
+            throw new HealthyShopException(e.getMessage(), e);
+        }
     }
 
     @Override
