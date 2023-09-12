@@ -7,6 +7,7 @@ import ba.unsa.etf.rpr.exceptions.HealthyShopException;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -51,5 +52,13 @@ public class NarudzbaProizvodaDaoSQLImpl extends  AbstractDao<NarudzbaProizvoda>
         item.put("proizvod_id", object.getProizvod_id().getId());
         item.put("narudzba_id", object.getNarudzba_id().getId());
         return item;
+    }
+
+    @Override
+    public List<NarudzbaProizvoda> dajPoKorisniku(int id_korisnik) throws HealthyShopException {
+        return executeQuery("SELECT NarudzbaProizvod.*\n" +
+                "FROM NarudzbaProizvod\n" +
+                "INNER JOIN Narudzba ON NarudzbaProizvod.narudzba_id = Narudzba.id\n" +
+                "WHERE Narudzba.korisnik_id = ?",new Object[]{id_korisnik});
     }
 }
