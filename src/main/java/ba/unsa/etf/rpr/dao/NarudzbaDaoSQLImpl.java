@@ -4,6 +4,7 @@ import ba.unsa.etf.rpr.domain.Narudzba;
 import ba.unsa.etf.rpr.exceptions.HealthyShopException;
 
 import java.sql.*;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -48,4 +49,13 @@ public class NarudzbaDaoSQLImpl extends  AbstractDao<Narudzba> implements Narudz
         item.put("idKorisnik", object.getKorisnik_id());
         return item;
     }
+
+    @Override
+    public List<Narudzba> pronadjiPoID(int id) throws HealthyShopException {
+        return executeQuery("SELECT * from Narudzba WHERE idNarudzba = ?", new Object[]{id});
+    }
 }
+
+
+
+
