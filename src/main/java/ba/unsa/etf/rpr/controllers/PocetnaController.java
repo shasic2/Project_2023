@@ -1,7 +1,9 @@
 package ba.unsa.etf.rpr.controllers;
 
 import ba.unsa.etf.rpr.App;
+import ba.unsa.etf.rpr.business.KorisnikManager;
 import ba.unsa.etf.rpr.domain.Korisnik;
+import ba.unsa.etf.rpr.exceptions.HealthyShopException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -15,6 +17,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Objects;
 
 import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
@@ -24,10 +27,50 @@ public class PocetnaController {
     public Button BtnPrijava;
     public PasswordField PasswordId;
     public Label GreskaId;
+    public Label dodatnoPolje;
 
-    public void akcijaPrijave(ActionEvent actionEvent) {
+    public void akcijaPrijave(ActionEvent actionEvent) throws HealthyShopException {
         String uneseniEmail = Emaild.getText();
         String uneseniPassword = PasswordId.getText();
+        List<Korisnik> listaPrijavljenihKorisnika = KorisnikManager.dajSveKorisnike();
+        Model modelKorisnik = Model.getInstance();
+        int brojac = 0, brojac1 = 0;
+
+        if (Objects.equals(PasswordId.getText(), "") || Objects.equals(Emaild.getText(), "")) {
+            dodatnoPolje.setText("Polje ne može biti prazno !");
+            brojac++;
+
+        } else {
+            for (Korisnik k : listaPrijavljenihKorisnika) {
+                if (k.getEmail().equals(uneseniEmail) && k.getSifra().equals(uneseniPassword)) {
+                    brojac1++;
+                    modelKorisnik.setKorisnik(k);
+                }
+            }
+            if (brojac1 != 0)
+                dodatnoPolje.setText("");
+            else
+                dodatnoPolje.setText("Neispravni uneseni podaci!");
+        }
+
+        if (brojac == 0 && brojac1 != 0) {
+            try {
+
+                Stage stage =(Stage)BtnPrijava.getScene().getWindow();
+                stage.close();
+                Stage stage1 = new Stage();
+                FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("/fxml/proizvodi.fxml"));
+                ProizvodiController proizvodi = new ProizvodiController();
+                fxmlLoader.setController(proizvodi);
+                Scene scene = new Scene(fxmlLoader.load(), USE_COMPUTED_SIZE, USE_COMPUTED_SIZE);
+                stage1.setTitle("Healthy ponuda");
+                stage1.setScene(scene);
+                stage1.setResizable(false);
+                stage1.show();
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        }
 
     }
 
