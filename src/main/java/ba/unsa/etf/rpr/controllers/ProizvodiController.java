@@ -76,12 +76,12 @@ public class ProizvodiController {
 
     public void promjenaBojeOdjava(MouseEvent mouseEvent) {
         Button btn = (Button) mouseEvent.getSource();
-        btn.setStyle("-fx-background-color:  #1e381a ;");
+        btn.setStyle("-fx-background-color:  #1e381a;");
     }
 
     public void vracanjeBojeOdjava(MouseEvent mouseEvent) {
         Button btn = (Button) mouseEvent.getSource();
-        btn.setStyle("-fx-background-color:  #9CC23E  ;");
+        btn.setStyle("-fx-background-color:  #9CC23E;");
     }
 
     public void actionOtvaranjeONama(ActionEvent actionEvent) {
@@ -136,4 +136,15 @@ public class ProizvodiController {
 
     public void akcijaDodajUKorpu(ActionEvent actionEvent) {
     }
+
+    public void promjenaBojeUKorpu(MouseEvent mouseEvent) {
+        Button btn = (Button) mouseEvent.getSource();
+        btn.setStyle("-fx-background-color:  #5B8F52  ;");
+    }
+    public void vracanjeBojeUKorpu(MouseEvent mouseEvent) {
+        Button btn = (Button) mouseEvent.getSource();
+        btn.setStyle("-fx-background-color:  #ccd7ca  ;");
+    }
+
+
 }
