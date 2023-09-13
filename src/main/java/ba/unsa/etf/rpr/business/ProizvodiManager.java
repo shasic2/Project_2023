@@ -21,5 +21,8 @@ public class ProizvodiManager {
     public void obrisiProizvod(int id) throws HealthyShopException {
         DaoFactory.proizvodiDao().delete(id);
     }
+    public Proizvodi dajProizvodPoID(int id) throws HealthyShopException {
+        return DaoFactory.proizvodiDao().getById(id);
+    }
 
 }
