@@ -18,4 +18,8 @@ public class ProizvodiManager {
         return DaoFactory.proizvodiDao().pronadjiProizvod(ime);
     }
 
+    public void obrisiProizvod(int id) throws HealthyShopException {
+        DaoFactory.proizvodiDao().delete(id);
+    }
+
 }
