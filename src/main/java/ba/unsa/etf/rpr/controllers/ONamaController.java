@@ -46,8 +46,12 @@ public class ONamaController {
     }
 
     public void promjenaBrojeZatvori(MouseEvent mouseEvent) {
+        Button btn = (Button) mouseEvent.getSource();
+        btn.setStyle("-fx-background-color:  #5B8F52 ;");
     }
 
     public void promjenaBrojeOtvori(MouseEvent mouseEvent) {
+        Button btn = (Button) mouseEvent.getSource();
+        btn.setStyle("-fx-background-color:  #ccd7ca ;");
     }
 }
