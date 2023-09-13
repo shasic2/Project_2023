@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -25,12 +26,13 @@ public class PocetnaController {
     public Label GreskaId;
 
     public void akcijaPrijave(ActionEvent actionEvent) {
+        String uneseniEmail = Emaild.getText();
+        String uneseniPassword = PasswordId.getText();
 
     }
 
     public void OtvaranjeONama(ActionEvent actionEvent) {
         try {
-
             Parent newRoot = FXMLLoader.load(getClass().getResource("/fxml/ONama.fxml"));
             Stage stage = new Stage();
             stage.setTitle("O nama");
@@ -49,7 +51,6 @@ public class PocetnaController {
             Parent newRoot = FXMLLoader.load(getClass().getResource("/fxml/pomoc.fxml"));
             Stage stage = new Stage();
             stage.setTitle("Pomoc");
-
             Scene scene = new Scene(newRoot, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE);
             stage.setScene(scene);
             stage.setResizable(false);
@@ -62,12 +63,10 @@ public class PocetnaController {
 
     public void akcijaRegistracije(ActionEvent actionEvent) {
         try {
-            Stage stage1 =(Stage)BtnRegistracija.getScene().getWindow();
-            stage1.close();
+
             Parent newRoot = FXMLLoader.load(getClass().getResource("/fxml/Registracija.fxml"));
             Stage stage = new Stage();
             stage.setTitle("Registracija");
-
             Scene scene = new Scene(newRoot, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE);
             stage.setScene(scene);
             stage.setResizable(false);
@@ -78,4 +77,26 @@ public class PocetnaController {
     }
 
 
+    public void promjenaBojeRegis(MouseEvent mouseEvent) {
+    }
+
+    public void vracanjeBrojeRegist(MouseEvent mouseEvent) {
+    }
+
+    public void promjenaBojeONama(MouseEvent mouseEvent) {
+        Button btn = (Button) mouseEvent.getSource();
+        btn.setStyle("-fx-background-color:  #1e381a;");
+    }
+
+    public void vracanjeBojeONama(MouseEvent mouseEvent) {
+    }
+
+    public void promjenaBojePomoc(MouseEvent mouseEvent) {
+        Button btn = (Button) mouseEvent.getSource();
+        btn.setStyle("-fx-background-color:  #1e381a;");
+    }
+
+    public void vracanjeBojePomoc(MouseEvent mouseEvent) {
+
+    }
 }
