@@ -22,7 +22,7 @@ public class KategorijeManager {
 
     }
 
-    public int pronadjiKategorijuPoID(int id) throws HealthyShopException {
+    public Kategorije pronadjiKategorijuPoID(int id) throws HealthyShopException {
         return DaoFactory.kategorijeDao().getById(id);
     }
 }
