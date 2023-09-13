@@ -47,9 +47,13 @@ public class ProizvodiController {
     }
 
     public void promjenaBojeKorpa(MouseEvent mouseEvent) {
+        Button btn = (Button) mouseEvent.getSource();
+        btn.setStyle("-fx-background-color:  #1e381a ;");
     }
 
     public void vracanjeBojeKorpa(MouseEvent mouseEvent) {
+        Button btn = (Button) mouseEvent.getSource();
+        btn.setStyle("-fx-background-color:  #9CC23E  ;");
     }
 
     public void akcijaOdjaviSe(ActionEvent actionEvent) {
