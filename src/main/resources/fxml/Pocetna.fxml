@@ -70,12 +70,6 @@
                     <rowConstraints>
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
-                     <children>
-                        <Button fx:id="BtnRegistracija" mnemonicParsing="false" onAction="#akcijaRegistracije" text="Registruj se" textFill="#5b8f52" translateX="-30.0" translateY="-30.0" GridPane.columnIndex="1">
-                           <font>
-                              <Font size="13.0" />
-                           </font></Button>
-                     </children>
                   </GridPane>
                </buttons>
             </ButtonBar>
@@ -84,7 +78,7 @@
                   <Insets top="100.0" />
                </GridPane.margin>
             </Label>
-          <Button fx:id="BtnPrijava" mnemonicParsing="false" onAction="#akcijaPrijave" text="Prijavi se" textAlignment="JUSTIFY" textFill="#5b8f52" GridPane.rowIndex="3">
+          <Button fx:id="BtnPrijava" mnemonicParsing="false" onAction="#akcijaPrijave" style="-fx-background-color: #ccd7ca;" text="Prijavi se" textAlignment="JUSTIFY" textFill="#1d1e1d" GridPane.rowIndex="3">
                <font>
                   <Font name="Arial" size="13.0" />
                </font>
@@ -98,6 +92,11 @@
                </GridPane.margin>
             </PasswordField>
             <Label fx:id="GreskaId" prefHeight="18.0" prefWidth="42.0" GridPane.rowIndex="3" />
+            <Button fx:id="BtnRegistracija" mnemonicParsing="false" onAction="#akcijaRegistracije" onMouseEntered="#promjenaBojeRegis" onMouseExited="#vracanjeBrojeRegist" style="-fx-background-color: #ccd7ca;" text="Registruj se" textFill="#171817" GridPane.rowIndex="3">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Button>
          </children>
       </GridPane>
    </right>
@@ -106,11 +105,11 @@
          <children>
             <ButtonBar layoutX="382.0" layoutY="90.0" prefHeight="40.0" prefWidth="200.0" translateX="100.0" translateY="-40.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="382.0" AnchorPane.rightAnchor="122.0" AnchorPane.topAnchor="90.0">
               <buttons>
-                <Button fx:id="ONamaId" mnemonicParsing="false" onAction="#OtvaranjeONama" style="-fx-background-color: #9CC23E;" text="O nama" textFill="#5b8f52">
+                <Button fx:id="ONamaId" mnemonicParsing="false" onAction="#OtvaranjeONama" onMouseEntered="#promjenaBojeONama" onMouseExited="#vracanjeBojeONama" style="-fx-background-color: #9CC23E;" text="O nama" textFill="#5b8f52">
                      <font>
                         <Font name="Arial Bold" size="14.0" />
                      </font></Button>
-                  <Button fx:id="pomocId" mnemonicParsing="false" onAction="#OtvaranjePomoci" style="-fx-background-color: #9CC23E;" text="Pomoć" textFill="#5b8f52">
+                  <Button fx:id="pomocId" mnemonicParsing="false" onAction="#OtvaranjePomoci" onMouseEntered="#promjenaBojePomoc" onMouseExited="#vracanjeBojePomoc" style="-fx-background-color: #9CC23E;" text="Pomoć" textFill="#5b8f52">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>

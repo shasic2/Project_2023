@@ -78,17 +78,23 @@ public class PocetnaController {
 
 
     public void promjenaBojeRegis(MouseEvent mouseEvent) {
+        Button btn = (Button) mouseEvent.getSource();
+        btn.setStyle("-fx-background-color:  #5B8F52 ;");
     }
 
     public void vracanjeBrojeRegist(MouseEvent mouseEvent) {
+        Button btn = (Button) mouseEvent.getSource();
+        btn.setStyle("-fx-background-color:  #ccd7ca ;");
     }
 
     public void promjenaBojeONama(MouseEvent mouseEvent) {
         Button btn = (Button) mouseEvent.getSource();
-        btn.setStyle("-fx-background-color:  #1e381a;");
+        btn.setStyle("-fx-background-color:  #1e381a ;");
     }
 
     public void vracanjeBojeONama(MouseEvent mouseEvent) {
+        Button btn = (Button) mouseEvent.getSource();
+        btn.setStyle("-fx-background-color:  #9CC23E;");
     }
 
     public void promjenaBojePomoc(MouseEvent mouseEvent) {
@@ -97,6 +103,8 @@ public class PocetnaController {
     }
 
     public void vracanjeBojePomoc(MouseEvent mouseEvent) {
+        Button btn = (Button) mouseEvent.getSource();
+        btn.setStyle("-fx-background-color:  #9CC23E;");
 
     }
 }
