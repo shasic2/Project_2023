@@ -12,4 +12,7 @@ public class KategorijaManager {
     public void azurirajKategoriju(Kategorije kategorije) throws HealthyShopException {
         DaoFactory.kategorijeDao().update(kategorije);
     }
+    public void dodajKategoriju(Kategorije kategorije) throws HealthyShopException {
+        DaoFactory.kategorijeDao().add(kategorije);
+    }
 }
