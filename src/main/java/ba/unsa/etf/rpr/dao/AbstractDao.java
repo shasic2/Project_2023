@@ -3,7 +3,6 @@ package ba.unsa.etf.rpr.dao;
 import ba.unsa.etf.rpr.domain.Idable;
 import ba.unsa.etf.rpr.exceptions.HealthyShopException;
 
-import java.io.IOException;
 import java.sql.*;
 import java.util.*;
 
@@ -54,7 +53,7 @@ public abstract class AbstractDao<T extends Idable> implements  Dao<T> {
      * @throws HealthyShopException in case of error with db
      */
 
-    public abstract T row2object(ResultSet rs) throws HealthyShopException;
+    public abstract T row2object(ResultSet rs) throws HealthyShopException, SQLException;
 
     /**
      * Method for mapping Object into Map

@@ -5,9 +5,12 @@ import ba.unsa.etf.rpr.exceptions.HealthyShopException;
 
 import java.util.List;
 
-public  interface NarudzbaDao {
+public  interface NarudzbaDao extends Dao<Narudzba> {
 
     List<Narudzba> pronadjiPoID(int id) throws HealthyShopException;
 
     List<Narudzba> pronadjiNarudzbuPoKorisniku(int id) throws HealthyShopException;
+
+
+
 }

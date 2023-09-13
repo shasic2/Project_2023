@@ -7,6 +7,7 @@ import java.util.List;
 public interface Dao<T> {
     /**
      * get entity from database base on ID
+     *
      * @param id primary key of entity
      * @return Entity from database
      */
