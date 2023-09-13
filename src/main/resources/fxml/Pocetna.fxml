@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" >
    <center>
       <ImageView fitHeight="227.0" fitWidth="209.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
          <BorderPane.margin>
@@ -71,6 +71,11 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                   </GridPane>
+                  <Button fx:id="BtnRegistracija" mnemonicParsing="false" onAction="#akcijaRegistracije" onMouseEntered="#promjenaBojeRegis" onMouseExited="#vracanjeBrojeRegist" style="-fx-background-color: #ccd7ca;" text="Registruj se" textFill="#171817" translateX="-22.0" translateY="-28.0">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Button>
                </buttons>
             </ButtonBar>
             <Label prefHeight="18.0" prefWidth="53.0" GridPane.rowIndex="3">
@@ -78,7 +83,7 @@
                   <Insets top="100.0" />
                </GridPane.margin>
             </Label>
-          <Button fx:id="BtnPrijava" mnemonicParsing="false" onAction="#akcijaPrijave" style="-fx-background-color: #ccd7ca;" text="Prijavi se" textAlignment="JUSTIFY" textFill="#1d1e1d" GridPane.rowIndex="3">
+          <Button fx:id="BtnPrijava" mnemonicParsing="false" onAction="#akcijaPrijave" onMouseEntered="#promjenaBojeLog" onMouseExited="#bvracanjeBrojeLog" style="-fx-background-color: #ccd7ca;" text="Prijavi se" textAlignment="JUSTIFY" textFill="#1d1e1d" GridPane.rowIndex="3">
                <font>
                   <Font name="Arial" size="13.0" />
                </font>
@@ -92,11 +97,6 @@
                </GridPane.margin>
             </PasswordField>
             <Label fx:id="GreskaId" prefHeight="18.0" prefWidth="42.0" GridPane.rowIndex="3" />
-            <Button fx:id="BtnRegistracija" mnemonicParsing="false" onAction="#akcijaRegistracije" onMouseEntered="#promjenaBojeRegis" onMouseExited="#vracanjeBrojeRegist" style="-fx-background-color: #ccd7ca;" text="Registruj se" textFill="#171817" GridPane.rowIndex="3">
-               <font>
-                  <Font size="13.0" />
-               </font>
-            </Button>
          </children>
       </GridPane>
    </right>
