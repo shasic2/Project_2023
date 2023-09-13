@@ -25,4 +25,8 @@ public class ProizvodiManager {
         return DaoFactory.proizvodiDao().getById(id);
     }
 
+    public Proizvodi dodajProizvod (Proizvodi p) throws HealthyShopException {
+        return DaoFactory.proizvodiDao().add(p);
+    }
+
 }
