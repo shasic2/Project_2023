@@ -14,6 +14,10 @@ public class KorisnikManager {
     }
 
     public void obrisiKorisnika(int id) throws HealthyShopException {
-        DaoFactory.korisnikDao().delete(id);
+        DaoFactory.KorisnikDao().delete(id);
+    }
+
+    public Korisnik pronadjiKorisnikaPoID(int id) throws HealthyShopException {
+        return DaoFactory.KorisnikDao().getById(id);
     }
 }
