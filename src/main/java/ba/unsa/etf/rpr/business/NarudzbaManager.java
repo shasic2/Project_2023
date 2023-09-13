@@ -9,4 +9,7 @@ public class NarudzbaManager {
     public void obrisiNarudzbu(int id) throws HealthyShopException {
         DaoFactory.NarudzbaDao().delete(id);
     }
+    public void dodajNarudbu(Narudzba narudzba) throws HealthyShopException {
+        DaoFactory.NarudzbaDao().add(narudzba);
+    }
 }
