@@ -61,5 +61,21 @@ public class PocetnaController {
     }
 
     public void akcijaRegistracije(ActionEvent actionEvent) {
+        try {
+            Stage stage1 =(Stage)BtnRegistracija.getScene().getWindow();
+            stage1.close();
+            Parent newRoot = FXMLLoader.load(getClass().getResource("/fxml/Registracija.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Registracija");
+
+            Scene scene = new Scene(newRoot, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE);
+            stage.setScene(scene);
+            stage.setResizable(false);
+            stage.show();
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
     }
+
+
 }
