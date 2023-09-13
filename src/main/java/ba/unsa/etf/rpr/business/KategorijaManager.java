@@ -4,6 +4,8 @@ import ba.unsa.etf.rpr.dao.DaoFactory;
 import ba.unsa.etf.rpr.domain.Kategorije;
 import ba.unsa.etf.rpr.exceptions.HealthyShopException;
 
+import java.util.List;
+
 public class KategorijaManager {
 
     public void obrisiKategoriju(int id) throws HealthyShopException{
@@ -15,4 +17,11 @@ public class KategorijaManager {
     public void dodajKategoriju(Kategorije kategorije) throws HealthyShopException {
         DaoFactory.kategorijeDao().add(kategorije);
     }
+
+    public List<Kategorije> dajSveKategorije() throws HealthyShopException{
+        return DaoFactory.kategorijeDao().getAll();
+
+    }
+
+
 }
