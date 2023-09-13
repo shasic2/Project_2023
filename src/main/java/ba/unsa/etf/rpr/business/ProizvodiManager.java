@@ -29,4 +29,8 @@ public class ProizvodiManager {
         return DaoFactory.proizvodiDao().add(p);
     }
 
+    public List<Proizvodi> pronadjiProizvodPoKategoriji(int id) throws HealthyShopException {
+        return DaoFactory.proizvodiDao().pronadjiProizvodPoKategoriji(id);
+    }
+
 }
