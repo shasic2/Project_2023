@@ -20,4 +20,8 @@ public class NarudzbaManager {
     public void azurirajNarudzbu(Narudzba narudzba) throws HealthyShopException {
         DaoFactory.NarudzbaDao().update(narudzba);
     }
+
+    public List<Object> dajSveNarudzbe() throws HealthyShopException {
+        return DaoFactory.NarudzbaDao().getAll();
+    }
 }
