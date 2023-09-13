@@ -28,4 +28,8 @@ public class KorisnikManager {
     public static Korisnik dodajKorisnika(Korisnik korisnik) throws HealthyShopException {
         return DaoFactory.KorisnikDao().add(korisnik);
     }
+
+    public List<Korisnik> dajSveKorisnike() throws HealthyShopException {
+        return DaoFactory.KorisnikDao().getAll();
+    }
 }
