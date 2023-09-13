@@ -113,9 +113,13 @@ public class ProizvodiController {
     }
 
     public void promjenaBojeONAma(MouseEvent mouseEvent) {
+        Button btn = (Button) mouseEvent.getSource();
+        btn.setStyle("-fx-background-color:  #1e381a ;");
     }
 
     public void vracanjeBojeONama(MouseEvent mouseEvent) {
+        Button btn = (Button) mouseEvent.getSource();
+        btn.setStyle("-fx-background-color:  #9CC23E  ;");
     }
 
 
