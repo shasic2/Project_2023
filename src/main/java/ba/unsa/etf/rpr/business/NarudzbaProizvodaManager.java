@@ -14,4 +14,7 @@ public class NarudzbaProizvodaManager {
     public List<NarudzbaProizvoda> dajSveNP() throws HealthyShopException {
         return DaoFactory.narProDao().getAll();
     }
+    public List<NarudzbaProizvoda> dajPoKorisniku(int id_korisnik) throws HealthyShopException {
+        return DaoFactory.narProDao().dajPoKorisniku(id_korisnik);
+    }
 }
