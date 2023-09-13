@@ -1,5 +1,6 @@
 package ba.unsa.etf.rpr.controllers;
 
+import ba.unsa.etf.rpr.App;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -39,6 +40,21 @@ public class ProizvodiController {
     }
 
     public void akcijaOdjaviSe(ActionEvent actionEvent) {
+        try {
+            Stage stage =(Stage)btnODjava.getScene().getWindow();
+            stage.close();
+            Stage stage1 = new Stage();
+            FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("/fxml/pocetna.fxml"));
+            PocetnaController pocetna = new PocetnaController();
+            fxmlLoader.setController(pocetna);
+            Scene scene = new Scene(fxmlLoader.load(), USE_COMPUTED_SIZE, USE_COMPUTED_SIZE);
+            stage1.setTitle("Healthy shop");
+            stage1.setScene(scene);
+            stage1.setResizable(false);
+            stage1.show();
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     public void promjenaBojeOdjava(MouseEvent mouseEvent) {
