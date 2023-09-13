@@ -21,6 +21,17 @@ public class ONamaController {
     }
 
     public void OtvoriPomoc(ActionEvent actionEvent) {
+        try {
+            Parent newRoot = FXMLLoader.load(getClass().getResource("/fxml/pomoc.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Pomoc");
+            Scene scene = new Scene(newRoot, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE);
+            stage.setScene(scene);
+            stage.setResizable(false);
+            stage.show();
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
 
     }
 
