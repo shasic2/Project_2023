@@ -20,4 +20,8 @@ public class KorisnikManager {
     public Korisnik pronadjiKorisnikaPoID(int id) throws HealthyShopException {
         return DaoFactory.KorisnikDao().getById(id);
     }
+
+    public void azurirajKorisnika(Korisnik korisnik) throws HealthyShopException {
+        DaoFactory.KorisnikDao().update(korisnik);
+    }
 }
