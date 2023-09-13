@@ -107,4 +107,14 @@ public class PocetnaController {
         btn.setStyle("-fx-background-color:  #9CC23E;");
 
     }
+
+    public void promjenaBojeLog(MouseEvent mouseEvent) {
+        Button btn = (Button) mouseEvent.getSource();
+        btn.setStyle("-fx-background-color:  #5B8F52 ;");
+    }
+
+    public void bvracanjeBrojeLog(MouseEvent mouseEvent) {
+        Button btn = (Button) mouseEvent.getSource();
+        btn.setStyle("-fx-background-color:  #ccd7ca ;");
+    }
 }
