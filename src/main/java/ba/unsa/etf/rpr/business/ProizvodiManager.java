@@ -8,6 +8,11 @@ import java.util.List;
 
 public class ProizvodiManager {
     public List<Proizvodi> dajSveProizvode() throws HealthyShopException {
-        return DaoFactory.proizvodDao().getAll();
+        return DaoFactory.proizvodiDao().getAll();
     }
+    public void azurirajProizvod(Proizvodi proizvod) throws HealthyShopException {
+        DaoFactory.proizvodiDao().update(proizvod);
+    }
+
+
 }
