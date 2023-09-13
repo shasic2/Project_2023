@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TitledPane;
 import javafx.scene.input.MouseEvent;
@@ -24,6 +25,9 @@ public class ProizvodiController {
     public TableColumn idNazivSn;
     public TableColumn IdOpisSn;
     public TableColumn idCijenaSn;
+    public Button btnDodajUKorpu;
+    public Button btnPomoc, btnONama, btnODjava,btnKorpa;
+
 
     public void otvranjeKorpe(ActionEvent actionEvent) {
     }
@@ -56,6 +60,20 @@ public class ProizvodiController {
             System.out.println(e.getMessage());
         }
     }
+    public void otvaranjePomoci(ActionEvent actionEvent) {
+        try {
+
+            Parent newRoot = FXMLLoader.load(getClass().getResource("/fxml/pomoc.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Pomoc");
+            Scene scene = new Scene(newRoot, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE);
+            stage.setScene(scene);
+            stage.setResizable(false);
+            stage.show();
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 
     public void promjenaBojeONAma(MouseEvent mouseEvent) {
     }
@@ -63,8 +81,7 @@ public class ProizvodiController {
     public void vracanjeBojeONama(MouseEvent mouseEvent) {
     }
 
-    public void otvaranjePomoci(ActionEvent actionEvent) {
-    }
+
 
     public void promjenaBojePomoc(MouseEvent mouseEvent) {
     }
