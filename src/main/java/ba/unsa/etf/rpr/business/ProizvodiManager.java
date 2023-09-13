@@ -14,5 +14,8 @@ public class ProizvodiManager {
         DaoFactory.proizvodiDao().update(proizvod);
     }
 
+    public List<Proizvodi> pronadjiProizvod(String ime) throws HealthyShopException {
+        return DaoFactory.proizvodiDao().pronadjiProizvod(ime);
+    }
 
 }
