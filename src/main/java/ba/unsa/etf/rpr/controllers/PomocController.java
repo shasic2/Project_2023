@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -33,5 +34,13 @@ public class PomocController {
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    public void promjenaBoje(MouseEvent mouseEvent) {
+        Button btn = (Button) mouseEvent.getSource();
+        btn.setStyle("-fx-background-color:  #5B8F52;");
+    }
+
+    public void vracanjeBoje(MouseEvent mouseEvent) {
     }
 }
