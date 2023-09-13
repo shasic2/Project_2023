@@ -23,5 +23,9 @@ public class KategorijaManager {
 
     }
 
+    public Kategorije pronadjiKategorijuPoID(int id) throws HealthyShopException {
+        return DaoFactory.kategorijeDao().getById(id);
+    }
+
 
 }
