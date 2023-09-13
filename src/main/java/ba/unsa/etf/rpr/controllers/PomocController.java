@@ -42,5 +42,17 @@ public class PomocController {
     }
 
     public void vracanjeBoje(MouseEvent mouseEvent) {
+        Button btn = (Button) mouseEvent.getSource();
+        btn.setStyle("-fx-background-color:  #9CC23E;");
+    }
+
+    public void promjenaBoje1(MouseEvent mouseEvent) {
+        Button btn = (Button) mouseEvent.getSource();
+        btn.setStyle("-fx-background-color:  #1e381a;");
+    }
+
+    public void vracanjeBoje1(MouseEvent mouseEvent) {
+        Button btn = (Button) mouseEvent.getSource();
+        btn.setStyle("-fx-background-color:  #9CC23E;");
     }
 }
