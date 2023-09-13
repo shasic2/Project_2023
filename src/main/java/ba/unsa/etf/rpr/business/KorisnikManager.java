@@ -24,4 +24,8 @@ public class KorisnikManager {
     public void azurirajKorisnika(Korisnik korisnik) throws HealthyShopException {
         DaoFactory.KorisnikDao().update(korisnik);
     }
+
+    public static Korisnik dodajKorisnika(Korisnik korisnik) throws HealthyShopException {
+        return DaoFactory.KorisnikDao().add(korisnik);
+    }
 }
