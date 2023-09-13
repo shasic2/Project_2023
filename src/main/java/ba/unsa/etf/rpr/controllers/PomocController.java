@@ -51,7 +51,9 @@ public class PomocController {
         btn.setStyle("-fx-background-color:  #1e381a;");
     }
 
-    public void vracanjeBoje1(MouseEvent mouseEvent) {
+
+
+    public void vracanjeBroje1(MouseEvent mouseEvent) {
         Button btn = (Button) mouseEvent.getSource();
         btn.setStyle("-fx-background-color:  #9CC23E;");
     }
