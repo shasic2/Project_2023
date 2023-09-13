@@ -12,4 +12,8 @@ public class KorisnikManager {
     public static List<Korisnik> pronadjiKorisnikaPoEmailu(String email) throws HealthyShopException {
         return DaoFactory.KorisnikDao().pronadjiKorisnikaPoEmailu(email);
     }
+
+    public void obrisiKorisnika(int id) throws HealthyShopException {
+        DaoFactory.korisnikDao().delete(id);
+    }
 }
