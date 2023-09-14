@@ -6,15 +6,13 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane stylesheets="@../css/registracija.css" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.controllers.RegistracijaController">
    <bottom>
       <GridPane BorderPane.alignment="CENTER">
         <columnConstraints>
@@ -78,27 +76,27 @@
                   <Font name="Arial" size="14.0" />
                </font>
             </Label>
-            <PasswordField prefHeight="30.0" prefWidth="300.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="9">
+            <PasswordField fx:id="idPassword" prefHeight="30.0" prefWidth="300.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="9">
                <GridPane.margin>
                   <Insets right="30.0" />
                </GridPane.margin>
             </PasswordField>
-            <TextField GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="7">
+            <TextField fx:id="idEmail" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="7">
                <GridPane.margin>
                   <Insets right="30.0" />
                </GridPane.margin>
             </TextField>
-            <TextField GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="5">
+            <TextField fx:id="idAdresa" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="5">
                <GridPane.margin>
                   <Insets right="30.0" />
                </GridPane.margin>
             </TextField>
-            <TextField GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3">
+            <TextField fx:id="idPrezime" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets right="30.0" />
                </GridPane.margin>
             </TextField>
-            <TextField GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1">
+            <TextField fx:id="idIme" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets right="30.0" />
                </GridPane.margin>
@@ -113,18 +111,23 @@
             </Label>
             <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="11">
               <buttons>
-                <Button mnemonicParsing="false" text="Registruj se" textFill="#5b8f52" translateX="-30.0">
+                <Button fx:id="btnRegistracija" mnemonicParsing="false" onAction="#akcijaRegistracije" text="Registruj se" textFill="#5b8f52" translateX="-30.0">
                      <font>
                         <Font name="Arial" size="14.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" text="Zatvori" textFill="#5b8f52" translateX="-30.0">
+                  <Button fx:id="btnZatvori" mnemonicParsing="false" onAction="#akcijaZatvaranja" text="Zatvori" textFill="#5b8f52" translateX="-30.0">
                      <font>
                         <Font name="Arial" size="14.0" />
                      </font>
                   </Button>
               </buttons>
             </ButtonBar>
+            <Label fx:id="Labela1" textFill="#f22929" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <Label fx:id="Labela2" textFill="#f22929" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <Label fx:id="Labela3" textFill="#f22929" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+            <Label fx:id="Labela4" textFill="#f22929" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+            <Label fx:id="Labela5" textFill="#f22929" GridPane.columnIndex="3" GridPane.rowIndex="9" />
          </children>
       </GridPane>
    </bottom>
@@ -139,22 +142,14 @@
           <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <ImageView fitHeight="99.0" fitWidth="118.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/Clothing_2.png" />
-               </image>
-               <GridPane.margin>
-                  <Insets />
-               </GridPane.margin>
-            </ImageView>
             <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.columnIndex="2">
               <buttons>
-                  <Button mnemonicParsing="false" style="-fx-background-color: #9CC23E;" text="Pomoć" textFill="#5b8f52" translateX="-15.0">
+                  <Button fx:id="btnPomoc" mnemonicParsing="false" onAction="#otvaranjePomoc" style="-fx-background-color: #9CC23E;" text="Pomoć" textFill="#5b8f52" translateX="-15.0">
                      <font>
                         <Font name="Arial" size="14.0" />
                      </font>
                   </Button>
-                <Button mnemonicParsing="false" style="-fx-background-color: #9CC23E;" text="O nama" textFill="#5b8f52" translateX="-20.0">
+                <Button fx:id="btnONama" mnemonicParsing="false" onAction="#otvaranjeONama" style="-fx-background-color: #9CC23E;" text="O nama" textFill="#5b8f52" translateX="-20.0">
                      <font>
                         <Font name="Arial Bold" size="14.0" />
                      </font>
