@@ -1,9 +1,11 @@
 package ba.unsa.etf.rpr;
 
+import ba.unsa.etf.rpr.business.KorisnikManager;
 import ba.unsa.etf.rpr.domain.Kategorije;
 import ba.unsa.etf.rpr.domain.Korisnik;
 import ba.unsa.etf.rpr.domain.Narudzba;
 import ba.unsa.etf.rpr.domain.Proizvodi;
+import ba.unsa.etf.rpr.exceptions.HealthyShopException;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -53,6 +55,16 @@ public class AppTest {
         assertNotEquals("nhelaccc1@etf.unsa.ba", k2.getEmail());
         k2.setSifra("159753");
         assertNotEquals("123685", k2.getSifra());
+    }
+
+    @Test
+    public void Test5(){
+        KorisnikManager manager = new KorisnikManager();
+        try{
+            manager.validacijaImena("n");
+        } catch (HealthyShopException e) {
+            assertEquals("Ime mora sadržavati samo slova", e.getMessage());
+        }
     }
 
 
