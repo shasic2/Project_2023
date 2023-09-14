@@ -5,8 +5,7 @@ import ba.unsa.etf.rpr.domain.Korisnik;
 import ba.unsa.etf.rpr.domain.Proizvodi;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertAll;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class AppTest {
 
@@ -23,6 +22,23 @@ public class AppTest {
                         () -> assertEquals("123456", k1.getSifra(), "Password je netačan!")
                 );
         }
+
+    @Test
+    public void Test2(){
+        assertEquals(6, k1.getSifra().length());
+    }
+
+    Kategorije kategorija1 = new Kategorije(1,"Napici");
+    Kategorije kategorija2 = new Kategorije(2, "Snackovi");
+    Proizvodi p = new Proizvodi(1, 1, "Zeleni Energetski Pojačivač", " Kuglica napravljena od kokosovog brašna i meda.", 6);
+
+    @Test
+    public void Test3(){
+
+        assertTrue(p.getKategorija_id()==kategorija1.getId());
+    }
+
+
 
 
 
