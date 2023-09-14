@@ -1,18 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ButtonBar?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.text.Font?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.controllers.PomocController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.controllers.PomocController">
    <top>
       <GridPane prefHeight="71.0" prefWidth="579.0" style="-fx-background-color: #5B8F52;" BorderPane.alignment="CENTER">
         <columnConstraints>
@@ -28,12 +22,12 @@
          <children>
             <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.columnIndex="1">
               <buttons>
-                <Button mnemonicParsing="false" style="-fx-background-color: #9CC23E;" text="O nama" textFill="#5b8f52" translateX="-20.0">
+                <Button fx:id="btnONama" mnemonicParsing="false" onAction="#OtvaranjeONama" onMouseEntered="#promjenaBoje1" onMouseExited="#vracanjeBroje1" style="-fx-background-color: #9CC23E;" text="O nama" textFill="#5b8f52" translateX="-20.0">
                      <font>
                         <Font name="Arial Bold" size="14.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" style="-fx-background-color: #9CC23E;" text="Pomoć" textFill="#5b8f52" translateX="-20.0" underline="true">
+                  <Button fx:id="btnPomoc" mnemonicParsing="false" style="-fx-background-color: #9CC23E;" text="Pomoć" textFill="#5b8f52" translateX="-20.0" underline="true">
                      <font>
                         <Font name="Arial Bold" size="14.0" />
                      </font>
@@ -77,7 +71,7 @@
                   <Font name="Arial" size="13.0" />
                </font>
             </Label>
-            <Button fx:id="ZatvoriID" mnemonicParsing="false" onAction="#ZatvaranjeProzora" text="Zatvori" GridPane.rowIndex="2">
+            <Button fx:id="ZatvoriID" mnemonicParsing="false" onAction="#ZatvaranjeProzora" onMouseEntered="#promjenaBoje" onMouseExited="#vracanjeBoje" style="-fx-background-color: #9CC23E;" text="Zatvori" GridPane.rowIndex="2">
                <font>
                   <Font name="Arial" size="14.0" />
                </font>
