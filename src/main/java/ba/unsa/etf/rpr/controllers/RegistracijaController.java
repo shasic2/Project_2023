@@ -148,6 +148,8 @@ public class RegistracijaController {
     }
 
     public void akcijaZatvaranja(ActionEvent actionEvent) {
+        Stage stage =(Stage)btnZatvori.getScene().getWindow();
+        stage.close();
     }
 
     public void otvaranjePomoc(ActionEvent actionEvent) {
