@@ -3,13 +3,20 @@ package ba.unsa.etf.rpr.controllers;
 import ba.unsa.etf.rpr.exceptions.HealthyShopException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.event.ActionEvent;
+import javafx.stage.Stage;
 
 import javax.net.ssl.HandshakeCompletedEvent;
+import java.io.IOException;
+
+import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
 public class KorpaController {
 
@@ -32,10 +39,35 @@ public class KorpaController {
 }
 
     public void otvaranjeONama(ActionEvent actionEvent) {
+        try {
+            Parent newRoot = FXMLLoader.load(getClass().getResource("/fxml/ONama.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("O nama");
+            Scene scene = new Scene(newRoot, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE);
+            stage.setScene(scene);
+            stage.setResizable(false);
+            stage.show();
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+
 
     }
 
     public void otvaranjePomoci(MouseEvent mouseEvent) {
+
+        try {
+
+            Parent newRoot = FXMLLoader.load(getClass().getResource("/fxml/pomoc.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Pomoc");
+            Scene scene = new Scene(newRoot, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE);
+            stage.setScene(scene);
+            stage.setResizable(false);
+            stage.show();
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     public void brisanjeProizvodaIzKorpe(ActionEvent actionEvent) {
