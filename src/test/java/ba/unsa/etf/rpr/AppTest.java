@@ -1,6 +1,7 @@
 package ba.unsa.etf.rpr;
 
 import ba.unsa.etf.rpr.business.KorisnikManager;
+import ba.unsa.etf.rpr.business.ProizvodiManager;
 import ba.unsa.etf.rpr.domain.Kategorije;
 import ba.unsa.etf.rpr.domain.Korisnik;
 import ba.unsa.etf.rpr.domain.Narudzba;
@@ -72,6 +73,24 @@ public class AppTest {
         Narudzba n1 = new Narudzba(1, 1, 6);
         assertEquals(n1.getRacun(), p.getCijena());
     }
+
+    @Test
+    public void Test7() throws HealthyShopException {
+        ProizvodiManager manager = new ProizvodiManager();
+        manager.obrisiProizvod(1);
+        assertNotNull(manager.dajSveProizvode().size());
+    }
+
+    @Test
+    public void Test8(){
+        KorisnikManager manager = new KorisnikManager();
+        try{
+            manager.validacijaPrezimena("123");
+        } catch (HealthyShopException e) {
+            assertEquals("Prezime mora sadržavati samo slova", e.getMessage());
+        }
+    }
+
 
 
 
