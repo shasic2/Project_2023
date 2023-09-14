@@ -5,7 +5,11 @@ import ba.unsa.etf.rpr.domain.Proizvodi;
 import ba.unsa.etf.rpr.exceptions.HealthyShopException;
 
 import java.util.List;
-
+/**
+ * Sloj biznis logike za upravljanje proizvodima
+ *
+ * @author Selma
+ */
 public class ProizvodiManager {
     public List<Proizvodi> dajSveProizvode() throws HealthyShopException {
         return DaoFactory.proizvodiDao().getAll();
