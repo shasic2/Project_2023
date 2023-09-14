@@ -17,9 +17,7 @@ public class KorisnikManager {
         DaoFactory.korisnikDao().delete(id);
     }
 
-    public Korisnik pronadjiKorisnikaPoID(int id) throws HealthyShopException {
-        return DaoFactory.korisnikDao().getById(id);
-    }
+
 
     public void azurirajKorisnika(Korisnik korisnik) throws HealthyShopException {
         DaoFactory.korisnikDao().update(korisnik);
@@ -29,9 +27,10 @@ public class KorisnikManager {
         return DaoFactory.korisnikDao().add(korisnik);
     }
 
-    public List<Korisnik> dajSveKorisnike() throws HealthyShopException {
+    public static List<Korisnik> dajSveKorisnike() throws HealthyShopException {
         return DaoFactory.korisnikDao().getAll();
     }
+
 
 
 }
