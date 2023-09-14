@@ -5,17 +5,25 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
+/**
+ * JavaFX controller za kreiranje i izmjenu prozora za pomoć korisniku
+ *
+ * @author Selma
+ */
 
 public class PomocController {
     public Button ZatvoriID;
     public Button btnONama;
     public Button btnPomoc;
+
+
 
     public void ZatvaranjeProzora(ActionEvent actionEvent) {
         Stage stage =(Stage)ZatvoriID.getScene().getWindow();
