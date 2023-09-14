@@ -56,6 +56,10 @@ public class ProizvodiController {
         tabelaId.setItems(FXCollections.observableList(manager.pronadjiProizvodPoKategoriji(1)));
         tabelaId.refresh();
     }
+    public void prikaziSnackove(ActionEvent actionEvent) throws HealthyShopException {
+        tabelaId.setItems(FXCollections.observableList(manager.pronadjiProizvodPoKategoriji(2)));
+        tabelaId.refresh();
+    }
 
 
 
