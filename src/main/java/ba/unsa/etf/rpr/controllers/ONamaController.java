@@ -11,7 +11,11 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
-
+/**
+ * JavaFX controller za kreiranje i izmjenu prozora sa informacijama o Healthy  shop-u
+ *
+ * @author Selma
+ */
 public class ONamaController {
     public Button ZatvoriId;
 
@@ -47,11 +51,13 @@ public class ONamaController {
 
     public void promjenaBrojeZatvori(MouseEvent mouseEvent) {
         Button btn = (Button) mouseEvent.getSource();
-        btn.setStyle("-fx-background-color:  #5B8F52 ;");
+        btn.setStyle("-fx-background-color:   #9CC23E ;");
     }
 
-    public void promjenaBrojeOtvori(MouseEvent mouseEvent) {
+
+
+    public void vracanjeBojeZatvori(MouseEvent mouseEvent) {
         Button btn = (Button) mouseEvent.getSource();
-        btn.setStyle("-fx-background-color:  #ccd7ca ;");
+        btn.setStyle("-fx-background-color:    #5B8F52 ;");
     }
 }
