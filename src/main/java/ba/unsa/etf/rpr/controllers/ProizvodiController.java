@@ -2,6 +2,7 @@ package ba.unsa.etf.rpr.controllers;
 
 import ba.unsa.etf.rpr.App;
 import ba.unsa.etf.rpr.business.KategorijeManager;
+import ba.unsa.etf.rpr.business.ModelManager;
 import ba.unsa.etf.rpr.business.ProizvodiManager;
 import ba.unsa.etf.rpr.domain.Proizvodi;
 import ba.unsa.etf.rpr.exceptions.HealthyShopException;
@@ -29,28 +30,42 @@ public class ProizvodiController {
 
     public Button btnPomoc, btnONama, btnODjava,btnKorpa;
 
-    private final ProizvodiManager proizvodManager = new ProizvodiManager();
-
 
     public static Proizvodi selektovaniProizvod = new Proizvodi();
+    public Button napiciId;
+    public Button snackoviId;
+    public Label idLabel;
     ProizvodiManager manager = new ProizvodiManager();
 
-    public TableView<Proizvodi> tabelaId;
-    public TableColumn<Proizvodi, String> tabelaNazivId;
-    public TableColumn<Proizvodi, String> tabelaOpisId;
-    public TableColumn<Proizvodi, Integer> tabelaCijenaID;
-
+    @FXML public TableView<Proizvodi> tabelaId;
+    @FXML public TableColumn<Proizvodi, String> tabelaNazivId;
+    @FXML public TableColumn<Proizvodi, String> tabelaOpisId;
+    @FXML public TableColumn<Proizvodi, Integer> tabelaCijenaID;
 
 
 
     @FXML
     void initialize() throws HealthyShopException {
-        tabelaNazivId.setCellValueFactory(new PropertyValueFactory<Proizvodi, String>("naziv"));
+        tabelaNazivId.setCellValueFactory(new PropertyValueFactory<Proizvodi, String>("ime"));
         tabelaOpisId.setCellValueFactory(new PropertyValueFactory<Proizvodi, String>("opis"));
         tabelaCijenaID.setCellValueFactory(new PropertyValueFactory<Proizvodi, Integer>("cijena"));
-        tabelaId.setItems(FXCollections.observableList(manager.dajSveProizvode()));
-        tabelaId.refresh();
     }
+
+
+
+    public void dodajProizvodUKorpu(ActionEvent actionEvent) {
+        Proizvodi p = tabelaId.getSelectionModel().getSelectedItem();
+        ModelManager model = ModelManager.getInstance();
+        if(p != null){
+            selektovaniProizvod = p;
+            tabelaId.getSelectionModel().clearSelection();
+            model.setProizvod(selektovaniProizvod);
+            idLabel.setText("");
+        }else{
+            idLabel.setText("Greska");
+        }
+    }
+
 
 
     public void otvranjeKorpe(ActionEvent actionEvent) {
@@ -159,15 +174,7 @@ public class ProizvodiController {
 
 
 
-    
 
-
-
- 
-
-
-    public void prikaziNapitke(ActionEvent actionEvent) {
-    }
 
     public void promjenaBojeNapici(MouseEvent mouseEvent) {
     }
@@ -175,8 +182,6 @@ public class ProizvodiController {
     public void vracanjeBojeNapici(MouseEvent mouseEvent) {
     }
 
-    public void prikaziSnackove(ActionEvent actionEvent) {
-    }
 
     public void promjneaBojeSnackovi(DragEvent dragEvent) {
     }
@@ -184,8 +189,7 @@ public class ProizvodiController {
     public void vracanjeBojeSnackovi(DragEvent dragEvent) {
     }
 
-    public void dodajProizvodUKorpu(ActionEvent actionEvent) {
-    }
+
 
     public void promjenaBojeDodajUKorpu(DragEvent dragEvent) {
     }
