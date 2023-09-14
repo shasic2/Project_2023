@@ -5,6 +5,11 @@ import ba.unsa.etf.rpr.domain.NarudzbaProizvoda;
 import ba.unsa.etf.rpr.exceptions.HealthyShopException;
 
 import java.util.List;
+/**
+ * Sloj biznis logike za upravljanje narucenim proizvodima
+ *
+ * @author Selma
+ */
 
 public class NarudzbaProizvodaManager {
 
