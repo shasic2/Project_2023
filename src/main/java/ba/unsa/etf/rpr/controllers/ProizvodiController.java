@@ -1,33 +1,56 @@
 package ba.unsa.etf.rpr.controllers;
 
 import ba.unsa.etf.rpr.App;
+import ba.unsa.etf.rpr.business.KategorijeManager;
+import ba.unsa.etf.rpr.business.ProizvodiManager;
+import ba.unsa.etf.rpr.domain.Proizvodi;
+import ba.unsa.etf.rpr.exceptions.HealthyShopException;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TitledPane;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.DragEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
+
 import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
 public class ProizvodiController {
-    public TableColumn idNazivNap;
-    public TitledPane idNapier;
-    public TableColumn idOpisNa;
-    public TableColumn idCijenaNa;
-    public TitledPane idNapici;
-    public TableColumn idNazivNa;
-    public TitledPane idSnackovi;
-    public TableColumn idNazivSn;
-    public TableColumn IdOpisSn;
-    public TableColumn idCijenaSn;
-    public Button btnDodajUKorpu;
+
+
+
     public Button btnPomoc, btnONama, btnODjava,btnKorpa;
+
+    private final ProizvodiManager proizvodManager = new ProizvodiManager();
+
+
+    public static Proizvodi selektovaniProizvod = new Proizvodi();
+    ProizvodiManager manager = new ProizvodiManager();
+
+    public TableView<Proizvodi> tabelaId;
+    public TableColumn<Proizvodi, String> tabelaNazivId;
+    public TableColumn<Proizvodi, String> tabelaOpisId;
+    public TableColumn<Proizvodi, Integer> tabelaCijenaID;
+
+
+
+
+    @FXML
+    void initialize() throws HealthyShopException {
+        tabelaNazivId.setCellValueFactory(new PropertyValueFactory<Proizvodi, String>("naziv"));
+        tabelaOpisId.setCellValueFactory(new PropertyValueFactory<Proizvodi, String>("opis"));
+        tabelaCijenaID.setCellValueFactory(new PropertyValueFactory<Proizvodi, Integer>("cijena"));
+        tabelaId.setItems(FXCollections.observableList(manager.dajSveProizvode()));
+        tabelaId.refresh();
+    }
 
 
     public void otvranjeKorpe(ActionEvent actionEvent) {
@@ -134,17 +157,39 @@ public class ProizvodiController {
         btn.setStyle("-fx-background-color:  #9CC23E  ;");
     }
 
-    public void akcijaDodajUKorpu(ActionEvent actionEvent) {
-    }
-
-    public void promjenaBojeUKorpu(MouseEvent mouseEvent) {
-        Button btn = (Button) mouseEvent.getSource();
-        btn.setStyle("-fx-background-color:  #5B8F52  ;");
-    }
-    public void vracanjeBojeUKorpu(MouseEvent mouseEvent) {
-        Button btn = (Button) mouseEvent.getSource();
-        btn.setStyle("-fx-background-color:  #ccd7ca  ;");
-    }
 
 
+    
+
+
+
+ 
+
+
+    public void prikaziNapitke(ActionEvent actionEvent) {
+    }
+
+    public void promjenaBojeNapici(MouseEvent mouseEvent) {
+    }
+
+    public void vracanjeBojeNapici(MouseEvent mouseEvent) {
+    }
+
+    public void prikaziSnackove(ActionEvent actionEvent) {
+    }
+
+    public void promjneaBojeSnackovi(DragEvent dragEvent) {
+    }
+
+    public void vracanjeBojeSnackovi(DragEvent dragEvent) {
+    }
+
+    public void dodajProizvodUKorpu(ActionEvent actionEvent) {
+    }
+
+    public void promjenaBojeDodajUKorpu(DragEvent dragEvent) {
+    }
+
+    public void vracanjeBojeDodajUKorpu(DragEvent dragEvent) {
+    }
 }
