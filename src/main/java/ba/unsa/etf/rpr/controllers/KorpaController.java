@@ -1,5 +1,9 @@
 package ba.unsa.etf.rpr.controllers;
 
+import ba.unsa.etf.rpr.business.ModelManager;
+import ba.unsa.etf.rpr.business.NarudzbaManager;
+import ba.unsa.etf.rpr.domain.Narudzba;
+import ba.unsa.etf.rpr.domain.Proizvodi;
 import ba.unsa.etf.rpr.exceptions.HealthyShopException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -28,6 +32,8 @@ public class KorpaController {
     public Button btnONama;
     public ButtonBar btnPomoc;
     public Label LabelaZaGresku;
+    NarudzbaManager manager = new NarudzbaManager();
+    public static Proizvodi proizvodUKorpi = new Proizvodi();
 
     @FXML public void initialize() throws HealthyShopException {
         if (ProizvodiController.selektovaniProizvod != null) {
@@ -86,7 +92,21 @@ public class KorpaController {
 
     }
 
-    public void narudzbaProizvoda(ActionEvent actionEvent) {
+    public void narudzbaProizvoda(ActionEvent actionEvent) throws HealthyShopException {
+        try {
+
+            Parent newRoot = FXMLLoader.load(getClass().getResource("/fxml/potvrdaNarudzbe.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Potvrda Narudzbe");
+            Scene scene = new Scene(newRoot, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE);
+            stage.setScene(scene);
+            stage.setResizable(false);
+            stage.show();
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+
+
     }
 
     public void zatvaranjeKorpe(ActionEvent actionEvent) {
