@@ -20,6 +20,11 @@ import java.util.List;
 import java.util.Objects;
 
 import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
+/**
+ * JavaFX controller za kreiranje i izmjenu prozora koji se otvori kada se aplikacija pokrene
+ *
+ * @author Selma
+ */
 
 public class PocetnaController {
     public TextField Emaild;
@@ -65,7 +70,6 @@ public class PocetnaController {
                 Scene scene = new Scene(fxmlLoader.load(), USE_COMPUTED_SIZE, USE_COMPUTED_SIZE);
                 stage1.setTitle("Healthy ponuda");
                 stage1.setScene(scene);
-                stage1.setResizable(false);
                 stage1.show();
             } catch (Exception e) {
                 System.out.println(e.getMessage());
