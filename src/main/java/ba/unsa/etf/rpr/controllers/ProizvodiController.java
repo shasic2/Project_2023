@@ -51,6 +51,13 @@ public class ProizvodiController {
         tabelaCijenaID.setCellValueFactory(new PropertyValueFactory<Proizvodi, Integer>("cijena"));
     }
 
+    public void prikaziNapitke(ActionEvent actionEvent) throws HealthyShopException {
+
+        tabelaId.setItems(FXCollections.observableList(manager.pronadjiProizvodPoKategoriji(1)));
+        tabelaId.refresh();
+    }
+
+
 
 
     public void dodajProizvodUKorpu(ActionEvent actionEvent) {
