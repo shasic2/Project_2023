@@ -23,16 +23,21 @@ public class App extends  Application {
     public void start(Stage stage) throws IOException {
         try {
             Stage stage1 = new Stage();
-            FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("/fxml/pocetna.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("/fxml/Pocetna.fxml"));
             PocetnaController pocetna = new PocetnaController();
             fxmlLoader.setController(pocetna);
             Scene scene = new Scene(fxmlLoader.load(), USE_COMPUTED_SIZE, USE_COMPUTED_SIZE);
-            stage1.setTitle("Healthy Shop");
+            stage1.setTitle("Healthy shop");
             stage1.setScene(scene);
             stage1.setResizable(false);
             stage1.show();
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
+
+    }
+
+    public static void main(String[] args) {
+        launch();
     }
 }
