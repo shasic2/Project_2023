@@ -2,7 +2,9 @@ package ba.unsa.etf.rpr.controllers;
 
 import ba.unsa.etf.rpr.business.ModelManager;
 import ba.unsa.etf.rpr.business.NarudzbaManager;
+import ba.unsa.etf.rpr.business.NarudzbaProizvodaManager;
 import ba.unsa.etf.rpr.domain.Narudzba;
+import ba.unsa.etf.rpr.domain.NarudzbaProizvoda;
 import ba.unsa.etf.rpr.domain.Proizvodi;
 import ba.unsa.etf.rpr.exceptions.HealthyShopException;
 import javafx.event.ActionEvent;
@@ -21,7 +23,11 @@ import javax.net.ssl.HandshakeCompletedEvent;
 import java.io.IOException;
 
 import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
-
+/**
+ * JavaFX controller za kreiranje i izmjenu prozora korisnikove korpe
+ *
+ * @author Selma
+ */
 public class KorpaController {
 
     public Label idLabelaNaziv;
@@ -32,8 +38,11 @@ public class KorpaController {
     public Button btnONama;
     public ButtonBar btnPomoc;
     public Label LabelaZaGresku;
+    public Label idLabel1;
+    public Label idLabel10;
+    public Label idLabel2;
     NarudzbaManager manager = new NarudzbaManager();
-    public static Proizvodi proizvodUKorpi = new Proizvodi();
+    public static Proizvodi proizvodIzKorpe = new Proizvodi();
 
     @FXML public void initialize() throws HealthyShopException {
         if (ProizvodiController.selektovaniProizvod != null) {
@@ -44,6 +53,35 @@ public class KorpaController {
 
   
 }
+/**
+    * Metoda za bilježenje narudžbe ukoliko se korisnik odluči da neki proizvod poruči
+     *
+ */
+    public void zabiljeziNarudzbu() throws HealthyShopException {
+        Model model = Model.getInstance();
+        Narudzba narudzba = new Narudzba();
+        NarudzbaProizvoda srednja = new NarudzbaProizvoda();
+
+        /**
+         * promjenjiva koja ce cuvati informacije o proizvodima
+         */
+        proizvodIzKorpe.setIme(idLabel1.getText());
+        proizvodIzKorpe.setOpis(idLabel2.getText());
+        proizvodIzKorpe.setCijena(Integer.parseInt(idLabel10.getText()));
+
+        System.out.println(proizvodIzKorpe.getIme() + "radiii");
+
+        narudzba.setKorisnik_id(model.getKorisnik());
+        narudzba.setRacun(model.getProizvodi().getCijena());
+        manager.dodajNarudbu(narudzba);
+        model.setNarudzba(narudzba);
+        srednja.setNarudzba_id(model.getNarudzba());
+        srednja.setProizvod_id(model.getProizvodi());
+
+        NarudzbaProizvodaManager narProManager = new NarudzbaProizvodaManager();
+        narProManager.dodajNP(srednja);
+    }
+
 
     public void otvaranjeONama(ActionEvent actionEvent) {
         try {
@@ -76,7 +114,11 @@ public class KorpaController {
             System.out.println(e.getMessage());
         }
     }
-
+    /**
+     * Događaj za brisanje dodanog proizvoda u korpu
+     *
+     * @param actionEvent
+     */
     public void brisanjeProizvodaIzKorpe(ActionEvent actionEvent) {
         if (idLabelaNaziv != null && idLabelaCijena != null )
         {
@@ -113,4 +155,5 @@ public class KorpaController {
         Stage stage =(Stage)btnZatvori.getScene().getWindow();
         stage.close();
     }
+
 }
