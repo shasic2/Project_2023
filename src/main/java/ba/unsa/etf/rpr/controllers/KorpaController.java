@@ -1,4 +1,49 @@
 package ba.unsa.etf.rpr.controllers;
 
+import ba.unsa.etf.rpr.exceptions.HealthyShopException;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
+import javafx.event.ActionEvent;
+
+import javax.net.ssl.HandshakeCompletedEvent;
+
 public class KorpaController {
+
+    public Label idLabelaNaziv;
+    public Label idLabelaCijena;
+    public Button btnObrisi;
+    public Label idLabela1;
+    public Button btnZatvori;
+    public Button btnONama;
+    public ButtonBar btnPomoc;
+
+    @FXML public void initialize() throws HealthyShopException {
+        if (ProizvodiController.selektovaniProizvod != null) {
+            idLabelaNaziv.setText(ProizvodiController.selektovaniProizvod.getIme());
+            idLabelaCijena.setText(ProizvodiController.selektovaniProizvod.getCijena());
+
+        }
+
+  
+}
+
+    public void otvaranjeONama(ActionEvent actionEvent) {
+
+    }
+
+    public void otvaranjePomoci(MouseEvent mouseEvent) {
+    }
+
+    public void brisanjeProizvodaIzKorpe(ActionEvent actionEvent) {
+    }
+
+    public void narudzbaProizvoda(ActionEvent actionEvent) {
+    }
+
+    public void zatvaranjeKorpe(ActionEvent actionEvent) {
+    }
 }
