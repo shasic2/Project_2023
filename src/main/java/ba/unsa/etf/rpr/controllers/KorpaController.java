@@ -27,11 +27,12 @@ public class KorpaController {
     public Button btnZatvori;
     public Button btnONama;
     public ButtonBar btnPomoc;
+    public Label LabelaZaGresku;
 
     @FXML public void initialize() throws HealthyShopException {
         if (ProizvodiController.selektovaniProizvod != null) {
             idLabelaNaziv.setText(ProizvodiController.selektovaniProizvod.getIme());
-            idLabelaCijena.setText(ProizvodiController.selektovaniProizvod.getCijena());
+            idLabelaCijena.setText(String.valueOf(ProizvodiController.selektovaniProizvod.getCijena()));
 
         }
 
@@ -71,11 +72,25 @@ public class KorpaController {
     }
 
     public void brisanjeProizvodaIzKorpe(ActionEvent actionEvent) {
+        if (idLabelaNaziv != null && idLabelaCijena != null )
+        {
+            ProizvodiController.selektovaniProizvod = null;
+            idLabelaNaziv.setText("");
+            idLabelaCijena.setText("");
+        }
+
+        else {
+            LabelaZaGresku.setText("Korpa je već prazna, ne postoji proizvod za brisanje !");
+        }
+
+
     }
 
     public void narudzbaProizvoda(ActionEvent actionEvent) {
     }
 
     public void zatvaranjeKorpe(ActionEvent actionEvent) {
+        Stage stage =(Stage)btnZatvori.getScene().getWindow();
+        stage.close();
     }
 }
