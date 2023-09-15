@@ -24,19 +24,20 @@ import java.io.IOException;
 
 import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
+/**
+ * JavaFX controller za kreiranje i izmjenu prozora sa prikazom Healthy proizvoda
+ *
+ * @author Selma
+ */
+
 public class ProizvodiController {
 
-
-
     public Button btnPomoc, btnONama, btnODjava,btnKorpa;
-
-
     public static Proizvodi selektovaniProizvod = new Proizvodi();
     public Button napiciId;
     public Button snackoviId;
-    public Label idLabel;
+    public Label idLabela;
     ProizvodiManager manager = new ProizvodiManager();
-
     @FXML public TableView<Proizvodi> tabelaId;
     @FXML public TableColumn<Proizvodi, String> tabelaNazivId;
     @FXML public TableColumn<Proizvodi, String> tabelaOpisId;
@@ -45,7 +46,7 @@ public class ProizvodiController {
 
 
     @FXML
-    void initialize() throws HealthyShopException {
+    public void initialize() throws HealthyShopException {
         tabelaNazivId.setCellValueFactory(new PropertyValueFactory<Proizvodi, String>("ime"));
         tabelaOpisId.setCellValueFactory(new PropertyValueFactory<Proizvodi, String>("opis"));
         tabelaCijenaID.setCellValueFactory(new PropertyValueFactory<Proizvodi, Integer>("cijena"));
@@ -71,9 +72,9 @@ public class ProizvodiController {
             selektovaniProizvod = p;
             tabelaId.getSelectionModel().clearSelection();
             model.setProizvod(selektovaniProizvod);
-            idLabel.setText("");
+            idLabela.setText("");
         }else{
-            idLabel.setText("Greska");
+            idLabela.setText("Greska");
         }
     }
 
