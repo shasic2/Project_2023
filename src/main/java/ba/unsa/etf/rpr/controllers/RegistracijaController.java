@@ -11,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 
@@ -185,5 +186,22 @@ public class RegistracijaController {
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    public void promjenaBojePomoc(MouseEvent mouseEvent) {
+        Button btn = (Button) mouseEvent.getSource();
+        btn.setStyle("-fx-background-color:  #1e381a;");
+    }
+
+    public void vracanjeBojePomoc(MouseEvent mouseEvent) {
+        Button btn = (Button) mouseEvent.getSource();
+        btn.setStyle("-fx-background-color:  #9CC23E;");
+    }
+
+    public void promjenaBojeONama(MouseEvent mouseEvent) {
+
+    }
+
+    public void vracanjeBrojeONama(MouseEvent mouseEvent) {
     }
 }
