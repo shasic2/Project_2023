@@ -87,6 +87,7 @@ public class RegistracijaController {
                     brojac1++;
                     Labela4.setText("Email već postoji !");
                     idEmail.getStyleClass().add("errorField");
+                    idEmail.getStyleClass().add("errorField");
                 }
             }
             if (brojac1 == 0)
