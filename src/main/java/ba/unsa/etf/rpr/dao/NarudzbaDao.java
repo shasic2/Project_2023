@@ -4,6 +4,11 @@ import ba.unsa.etf.rpr.domain.Narudzba;
 import ba.unsa.etf.rpr.exceptions.HealthyShopException;
 
 import java.util.List;
+/**
+ * DAO interfejs za objekat Narudzba
+ *
+ * @author Selma
+ */
 
 public  interface NarudzbaDao extends Dao<Narudzba> {
 
