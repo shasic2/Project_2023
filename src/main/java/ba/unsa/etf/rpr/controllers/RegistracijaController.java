@@ -199,9 +199,13 @@ public class RegistracijaController {
     }
 
     public void promjenaBojeONama(MouseEvent mouseEvent) {
+        Button btn = (Button) mouseEvent.getSource();
+        btn.setStyle("-fx-background-color:  #1e381a;");
 
     }
 
     public void vracanjeBrojeONama(MouseEvent mouseEvent) {
+        Button btn = (Button) mouseEvent.getSource();
+        btn.setStyle("-fx-background-color:  #9CC23E;");
     }
 }
