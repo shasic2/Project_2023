@@ -53,7 +53,10 @@ public class KorisnikDaoSQLImpl extends AbstractDao<Korisnik> implements Korisni
         return row;
     }
 
+    /**
+     * Metoda za pronalazak korisnika po Emailu
 
+     */
 
     @Override
     public List<Korisnik> pronadjiKorisnikaPoEmailu(String email) throws HealthyShopException{
