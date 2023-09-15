@@ -8,6 +8,12 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
+/**
+ * JavaFX controller za kreiranje i izmjenu prozora potvrde korisnikove narudzbe
+ *
+ * @author Selma
+ */
+
 public class PotvrdaNarudzbeController {
     public Label idLabela;
     public Button btnZatvori;
