@@ -23,6 +23,11 @@ import java.util.Objects;
 import java.util.Properties;
 
 import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
+/**
+ * JavaFX controller za kreiranje i izmjenu prozora za registrovanje novog korisnika
+ *
+ * @author Selma
+ */
 
 public class RegistracijaController {
     public PasswordField idPassword;
@@ -127,7 +132,7 @@ public class RegistracijaController {
                 try {
                     Stage stage = (Stage) btnRegistracija.getScene().getWindow();
                     stage.close();
-                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/potvrdaR.fxml"));
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/potvrdaRegistracije.fxml"));
                     fxmlLoader.setController(new PotvrdaRegistracijeController());
                     Parent root = fxmlLoader.load();
                     stage.setScene(new Scene(root, Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE));
