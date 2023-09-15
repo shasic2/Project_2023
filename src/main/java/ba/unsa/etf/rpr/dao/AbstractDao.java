@@ -5,6 +5,11 @@ import ba.unsa.etf.rpr.exceptions.HealthyShopException;
 
 import java.sql.*;
 import java.util.*;
+/**
+ * Apstraktna klasa koja implementira DAO metode za svaki entitet
+ *
+ * @author Selma
+ */
 
 public abstract class AbstractDao<T extends Idable> implements  Dao<T> {
     
