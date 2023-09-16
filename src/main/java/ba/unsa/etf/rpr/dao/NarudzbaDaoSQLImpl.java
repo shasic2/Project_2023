@@ -34,7 +34,7 @@ public class NarudzbaDaoSQLImpl extends  AbstractDao<Narudzba> implements Narudz
             Narudzba narudzba = new Narudzba();
             narudzba.setId(rs.getInt("id"));
             narudzba.setRacun(Integer.parseInt(rs.getString("racun")));
-            narudzba.setKorisnik_id((Integer) DaoFactory.korisnikDao().getById(rs.getInt("id_korisnik")));
+            narudzba.setKorisnik_id(DaoFactory.korisnikDao().getById(rs.getInt("id_korisnik")));
             return narudzba;
         } catch (Exception e) {
             throw new HealthyShopException(e.getMessage(), e);

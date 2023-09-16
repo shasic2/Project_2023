@@ -11,12 +11,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class NarudzbaProizvodaDaoSQLImpl extends  AbstractDao<NarudzbaProizvoda> implements  NarudzbaProizvodaDao {
+public class NarudzbaProizvodaDaoSQLImpl extends AbstractDao<NarudzbaProizvoda> implements NarudzbaProizvodaDao {
 
     private static NarudzbaProizvodaDaoSQLImpl instance = null;
     public NarudzbaProizvodaDaoSQLImpl() {
         super("NarudzbaProizvoda");
     }
+
 
     public static NarudzbaProizvodaDaoSQLImpl getInstance()
     {
@@ -32,25 +33,24 @@ public class NarudzbaProizvodaDaoSQLImpl extends  AbstractDao<NarudzbaProizvoda>
     }
 
     @Override
-    public NarudzbaProizvoda row2object(ResultSet rs) throws HealthyShopException, SQLException {
+    public NarudzbaProizvoda row2object(ResultSet rs) throws HealthyShopException {
         try {
             NarudzbaProizvoda np = new NarudzbaProizvoda();
             np.setId(rs.getInt("id"));
-            np.setProizvod_id((Proizvodi) DaoFactory.proizvodiDao().getById(rs.getInt("proizvod_id")));
-            np.setNarudzba_id((Narudzba) DaoFactory.narudzbaDao().getById(rs.getInt("narudzba_id")));
+            np.setProizvod_id(DaoFactory.proizvodiDao().getById(rs.getInt("id_proizvod")));
+            np.setNarudzba_id(DaoFactory.narudzbaDao().getById(rs.getInt("id_narudzba")));
             return np;
         } catch (Exception e) {
             throw new HealthyShopException(e.getMessage(), e);
         }
-
     }
 
     @Override
     public Map<String, Object> object2row(NarudzbaProizvoda object) {
         Map<String, Object> item = new TreeMap<>();
         item.put("id", object.getId());
-        item.put("proizvod_id", object.getProizvod_id().getId());
-        item.put("narudzba_id", object.getNarudzba_id().getId());
+        item.put("id_narudzba", object.getNarudzba_id().getId());
+        item.put("id_proizvod", object.getProizvod_id().getId());
         return item;
     }
 

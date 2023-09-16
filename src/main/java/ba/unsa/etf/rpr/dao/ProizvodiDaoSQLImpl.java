@@ -9,6 +9,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+import static ba.unsa.etf.rpr.dao.DaoFactory.*;
+import static ba.unsa.etf.rpr.dao.DaoFactory.kategorijeDao;
+
 public class ProizvodiDaoSQLImpl extends AbstractDao<Proizvodi> implements ProizvodiDao  {
 
     private static ProizvodiDaoSQLImpl instance = null;
@@ -27,17 +30,17 @@ public class ProizvodiDaoSQLImpl extends AbstractDao<Proizvodi> implements Proiz
     }
 
     @Override
-    public Proizvodi row2object(ResultSet rs) throws HealthyShopException, SQLException {
-        try {
-            Proizvodi proizvod = new Proizvodi();
-            proizvod.setId(rs.getInt("id"));
-            proizvod.setIme(rs.getString("ime"));
-            proizvod.setOpis(rs.getString("opis"));
-            proizvod.setKategorija_id((Integer) DaoFactory.KategorijeDao().getById(rs.getInt("categories_Id")));
-            proizvod.setCijena(Integer.parseInt(rs.getString("cijena")));
-            return proizvod;
-        } catch (Exception e) {
-            throw new HealthyShopException(e.getMessage(), e);
+    public Proizvodi row2object(ResultSet rs) throws HealthyShopException {
+        try{
+            Proizvodi proizvodi = new Proizvodi();
+            proizvodi.setId(rs.getInt("id"));
+            proizvodi.setIme(rs.getString("ime"));
+            proizvodi.setKategorije_id(rs.getInt("categories_Id"));
+            proizvodi.setOpis(rs.getString("opis"));
+            proizvodi.setCijena(rs.getInt("cijena"));
+            return proizvodi;
+        } catch (SQLException e) {
+            throw new HealthyShopException(e.getMessage(),e);
         }
     }
 
@@ -46,8 +49,8 @@ public class ProizvodiDaoSQLImpl extends AbstractDao<Proizvodi> implements Proiz
         Map<String, Object> item = new TreeMap<>();
         item.put("id", object.getId());
         item.put("ime", object.getIme());
+        item.put("categories_Id", object.getKategorija_id());
         item.put("opis", object.getOpis());
-        item.put("id_kategorija", object.getKategorija_id());
         item.put("cijena", object.getCijena());
         return item;
     }
