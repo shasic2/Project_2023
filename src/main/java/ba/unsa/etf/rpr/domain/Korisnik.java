@@ -1,111 +1,183 @@
 package ba.unsa.etf.rpr.domain;
 
 import java.util.Objects;
+/**
+ * Klasa za korisnika
+ * @author Selma
+ */
+
 
 public class Korisnik implements  Idable{
 
 
 
-    private int korisnik_id;
+    private int id;
     private String ime;
     private String prezime;
     private String email;
     private String adresa;
-    private int  telefon;
+
     private String sifra;
+    /**
+     * Konstruktor sa svim parametrima
+     * @param id
+     * @param ime
+     * @param prezime
+     * @param email
+     * @param adresa
+     * @param sifra
+     */
 
 
-    public Korisnik(int korisnik_id, String ime, String prezime, String email, String adresa, int telefon, String sifra){
-        this.korisnik_id = korisnik_id;
+    public Korisnik(int id, String ime, String prezime, String email, String adresa, String sifra){
+        this.id = id;
         this.ime = ime;
         this.prezime = prezime;
+        this.email = email;
         this.adresa = adresa;
-        this.telefon = telefon;
         this.sifra = sifra;
     }
 
+    /**
+     * Konstruktor bez parametara
+     */
     public Korisnik(){}
 
 
-    public int getKorisnik_id() {
-        return korisnik_id;
+    /**
+     * Getter za id
+     * @return
+     */
+    public int getId() {
+        return id;
     }
 
+    /**
+     * Getter za ime
+     * @return
+     */
     public String getIme() {
         return ime;
     }
+    /**
+     * Getter za prezime
+     * @return
+     */
 
     public String getPrezime() {
         return prezime;
     }
+    /**
+     * Getter za email
+     * @return
+     */
 
     public String getEmail() {
         return email;
     }
+    /**
+     * Getter za adresu
+     * @return
+     */
 
     public String getAdresa() {
         return adresa;
     }
+    /**
+     * Getter za sifru
+     * @return
+     */
 
-    public int getTelefon() {
-        return telefon;
-    }
 
     public String getSifra() {
         return sifra;
     }
 
-    public void setKorisnik_id(int korisnik_id) {
-        this.korisnik_id = korisnik_id;
+    /**
+     * Setter za id
+     * @param id
+     */
+    public void setId(int id) {
+        this.id = id;
     }
 
+    /**
+     * Setter za ime
+     * @param ime
+     */
     public void setIme(String ime) {
         this.ime = ime;
     }
+
+    /**
+     * Setter za prezime
+     * @param prezime
+     */
 
     public void setPrezime(String prezime) {
         this.prezime = prezime;
     }
 
+
+    /**
+     * Setter za email
+     * @param email
+     */
+
     public void setEmail(String email) {
         this.email = email;
     }
+
+    /**
+     * Setter za adresu
+     * @param adresa
+     */
 
     public void setAdresa(String adresa) {
         this.adresa = adresa;
     }
 
-    public void setTelefon(int telefon) {
-        this.telefon = telefon;
-    }
+    /**
+     * Setter za password
+     * @param sifra
+     */
 
     public void setSifra(String sifra) {
         this.sifra = sifra;
     }
 
+    /**
+     * Ispis korisnika
+     * @return
+     */
+
     @Override
     public String toString() {
         return "Korisnik{" +
-                "korisnik_id=" + korisnik_id +
+                "id=" + id +
                 ", ime='" + ime + '\'' +
                 ", prezime='" + prezime + '\'' +
                 ", email='" + email + '\'' +
                 ", adresa='" + adresa + '\'' +
-                ", telefon=" + telefon +
                 ", sifra='" + sifra + '\'' +
                 '}';
     }
 
+    /**
+     * Poređenje dva korisnika
+     * @param o
+     * @return
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Korisnik korisnik = (Korisnik) o;
-        return korisnik_id == korisnik.korisnik_id;
+        return id == korisnik.id;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(korisnik_id, ime, prezime, email, adresa, telefon,sifra);
+        return Objects.hash(id, ime, prezime, email, adresa,sifra);
     }
 }

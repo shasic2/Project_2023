@@ -1,14 +1,22 @@
 package ba.unsa.etf.rpr.domain;
 
+/**
+ * Klasa za narudzbuProizvoda
+ * @author Selma
+ */
+
 public class NarudzbaProizvoda implements  Idable {
 
-    private int narudzbaProizvoda_id;
+    private int id;
     private Proizvodi proizvod_id;
     private Narudzba narudzba_id;
 
 
-    public int getNarudzbaProizvoda_id() {
-        return narudzbaProizvoda_id;
+
+
+
+    public int getId() {
+        return id;
     }
 
     public Proizvodi getProizvod_id() {
@@ -19,8 +27,8 @@ public class NarudzbaProizvoda implements  Idable {
         return narudzba_id;
     }
 
-    public void setNarudzbaProizvoda_id(int narudzbaProizvoda_id) {
-        this.narudzbaProizvoda_id = narudzbaProizvoda_id;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setProizvod_id(Proizvodi proizvod_id) {
