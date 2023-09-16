@@ -1,15 +1,27 @@
 package ba.unsa.etf.rpr;
 
+import ba.unsa.etf.rpr.business.KategorijeManager;
 import ba.unsa.etf.rpr.business.KorisnikManager;
 import ba.unsa.etf.rpr.business.ProizvodiManager;
+import ba.unsa.etf.rpr.dao.DaoFactory;
+import ba.unsa.etf.rpr.dao.KorisnikDao;
+import ba.unsa.etf.rpr.dao.KorisnikDaoSQLImpl;
+import ba.unsa.etf.rpr.dao.ProizvodiDaoSQLImpl;
 import ba.unsa.etf.rpr.domain.Kategorije;
 import ba.unsa.etf.rpr.domain.Korisnik;
 import ba.unsa.etf.rpr.domain.Narudzba;
 import ba.unsa.etf.rpr.domain.Proizvodi;
 import ba.unsa.etf.rpr.exceptions.HealthyShopException;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
+import org.mockito.MockedStatic;
+import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.when;
 
 public class AppTest {
 
@@ -90,6 +102,59 @@ public class AppTest {
             assertEquals("Prezime mora sadržavati samo slova", e.getMessage());
         }
     }
+
+    @Mock
+    public Korisnik korisnik = new Korisnik();
+    private KorisnikDao daoKorisnik;
+    private KorisnikDaoSQLImpl sqlKorisnik = Mockito.mock(KorisnikDaoSQLImpl.class);
+    private ProizvodiDaoSQLImpl sqlProizvod = Mockito.mock(ProizvodiDaoSQLImpl.class);
+    private KorisnikManager korisnikManager = new KorisnikManager();
+    private KategorijeManager kategorijaManager = new KategorijeManager();
+    private ProizvodiManager proizvodManager = new ProizvodiManager();
+
+    @BeforeEach
+    public void setUp() {
+        korisnik.setId(1);
+        korisnik.setIme("Selmaa");
+        korisnik.setPrezime("Hassic");
+        korisnik.setAdresa("Mekote 55");
+        korisnik.setEmail("shasic2@etfff.unsa.ba");
+        korisnik.setSifra("12344321");
+        MockitoAnnotations.openMocks(this);
+        korisnikManager = new KorisnikManager();
+        kategorijaManager = Mockito.mock(KategorijeManager.class);
+        proizvodManager = Mockito.mock(ProizvodiManager.class);
+    }
+
+
+
+
+
+
+        @Test
+       public void Test9() throws HealthyShopException {
+        Proizvodi proizvod = new Proizvodi(3, 1, "Kokosova Oaza Osveženja", "Napitak koji se sastoji od kokosove vode i komadića svježeg ananasa.", 7);
+        MockedStatic<DaoFactory> mockedFactory = Mockito.mockStatic(DaoFactory.class);
+        mockedFactory.when(DaoFactory::proizvodiDao).thenReturn(sqlProizvod);
+        Proizvodi proizvod1 = new Proizvodi();
+        when(sqlProizvod.add(Mockito.any(Proizvodi.class))).thenReturn(proizvod1);
+        Proizvodi proizvod2 = sqlProizvod.add(new Proizvodi());
+        assertEquals(proizvod1, proizvod2);
+        mockedFactory.close();
+    }
+
+
+    @Test
+    public void Test10() throws HealthyShopException {
+        Proizvodi proizvod = new Proizvodi(1,1, "Kokosova Oaza Osveženja", "Napitak koji se sastoji od kokosove vode i komadića svježeg ananasa.", 6);
+        proizvodManager.dodajProizvod(proizvod);
+        Assertions.assertTrue(true);
+        Mockito.verify(proizvodManager).dodajProizvod(proizvod);
+    }
+
+
+
+
 
 
 
