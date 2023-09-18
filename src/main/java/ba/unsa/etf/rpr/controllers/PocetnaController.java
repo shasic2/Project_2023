@@ -2,6 +2,7 @@ package ba.unsa.etf.rpr.controllers;
 
 import ba.unsa.etf.rpr.App;
 import ba.unsa.etf.rpr.business.KorisnikManager;
+import ba.unsa.etf.rpr.business.ModelManager;
 import ba.unsa.etf.rpr.domain.Korisnik;
 import ba.unsa.etf.rpr.exceptions.HealthyShopException;
 import javafx.event.ActionEvent;
@@ -38,7 +39,7 @@ public class PocetnaController {
         String uneseniEmail = Emaild.getText();
         String uneseniPassword = PasswordId.getText();
         List<Korisnik> listaPrijavljenihKorisnika = KorisnikManager.dajSveKorisnike();
-        Model modelKorisnik = Model.getInstance();
+        ModelManager modelKorisnik = ModelManager.getInstance();
         int brojac = 0, brojac1 = 0;
 
         if (Objects.equals(PasswordId.getText(), "") || Objects.equals(Emaild.getText(), "")) {

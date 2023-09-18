@@ -32,9 +32,10 @@ public class NarudzbaDaoSQLImpl extends  AbstractDao<Narudzba> implements Narudz
     public Narudzba row2object(ResultSet rs) throws HealthyShopException {
         try {
             Narudzba narudzba = new Narudzba();
-            narudzba.setId(rs.getInt("id"));
+            narudzba.setId(rs.getInt("idNarudzba"));
             narudzba.setRacun(Integer.parseInt(rs.getString("racun")));
-            narudzba.setKorisnik_id(DaoFactory.korisnikDao().getById(rs.getInt("id_korisnik")));
+            narudzba.setKorisnik_id(DaoFactory.korisnikDao().getById(rs.getInt("korisnik_id")));
+            narudzba.setNaziv(rs.getString("naziv"));
             return narudzba;
         } catch (Exception e) {
             throw new HealthyShopException(e.getMessage(), e);
@@ -46,7 +47,8 @@ public class NarudzbaDaoSQLImpl extends  AbstractDao<Narudzba> implements Narudz
         Map<String, Object> item = new TreeMap<>();
         item.put("idNarudzba", object.getId());
         item.put("racun", object.getRacun());
-        item.put("idKorisnik", object.getKorisnik_id());
+        item.put("korisnik_id", object.getKorisnik_id());
+        item.put("naziv", object.getNaziv());
         return item;
     }
 

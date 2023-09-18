@@ -41,6 +41,7 @@ public class KorpaController {
     public Label idLabel1;
     public Label idLabel10;
     public Label idLabel2;
+    public Button btnNaruci;
     NarudzbaManager manager = new NarudzbaManager();
     public static Proizvodi proizvodIzKorpe = new Proizvodi();
 
@@ -50,36 +51,20 @@ public class KorpaController {
             idLabelaCijena.setText(String.valueOf(ProizvodiController.selektovaniProizvod.getCijena()));
 
         }
-
-  
 }
-/**
-    * Metoda za bilježenje narudžbe ukoliko se korisnik odluči da neki proizvod poruči
-     *
- */
+    /**
+     * Metoda kojom ćemo zapamtiti naručeni proizvod
+     * @throws HealthyShopException
+     */
     public void zabiljeziNarudzbu() throws HealthyShopException {
-        Model model = Model.getInstance();
+        ModelManager model = ModelManager.getInstance();
         Narudzba narudzba = new Narudzba();
-        NarudzbaProizvoda srednja = new NarudzbaProizvoda();
-
-        /**
-         * promjenjiva koja ce cuvati informacije o proizvodima
-         */
-        proizvodIzKorpe.setIme(idLabel1.getText());
-        proizvodIzKorpe.setOpis(idLabel2.getText());
-        proizvodIzKorpe.setCijena(Integer.parseInt(idLabel10.getText()));
-
-        System.out.println(proizvodIzKorpe.getIme() + "radiii");
-
-        narudzba.setKorisnik_id(model.getKorisnik());
-        narudzba.setRacun(model.getProizvodi().getCijena());
+        narudzba.setKorisnik_id(model.getKorisnik().getId());
+        narudzba.setRacun(model.getProizvod().getCijena());
+        narudzba.setNaziv(model.getProizvod().getIme());
+        System.out.println(narudzba.getNaziv());
         manager.dodajNarudbu(narudzba);
-        model.setNarudzba(narudzba);
-        srednja.setNarudzba_id(model.getNarudzba());
-        srednja.setProizvod_id(model.getProizvodi());
 
-        NarudzbaProizvodaManager narProManager = new NarudzbaProizvodaManager();
-        narProManager.dodajNP(srednja);
     }
 
 
@@ -95,6 +80,9 @@ public class KorpaController {
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
+
+
+
 
 
     }
@@ -131,21 +119,24 @@ public class KorpaController {
             LabelaZaGresku.setText("Korpa je već prazna, ne postoji proizvod za brisanje !");
         }
 
-
     }
 
     public void narudzbaProizvoda(ActionEvent actionEvent) throws HealthyShopException {
-        try {
 
+
+        try {
+            zabiljeziNarudzbu();
+            Stage stage1 = (Stage) btnNaruci.getScene().getWindow();
+            stage1.close();
             Parent newRoot = FXMLLoader.load(getClass().getResource("/fxml/potvrdaNarudzbe.fxml"));
             Stage stage = new Stage();
-            stage.setTitle("Potvrda Narudzbe");
+            stage.setTitle("Potvrda");
             Scene scene = new Scene(newRoot, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE);
             stage.setScene(scene);
             stage.setResizable(false);
             stage.show();
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
+        } catch (Exception e1) {
+            System.out.println(e1.getMessage());
         }
 
 

@@ -1,9 +1,11 @@
 package ba.unsa.etf.rpr.controllers;
 
 import ba.unsa.etf.rpr.business.KorisnikManager;
+import ba.unsa.etf.rpr.business.ModelManager;
 import ba.unsa.etf.rpr.domain.Korisnik;
 import ba.unsa.etf.rpr.exceptions.HealthyShopException;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -41,9 +43,12 @@ public class RegistracijaController {
 
     KorisnikManager korisnikManager = new KorisnikManager();
 
+
+
     public void akcijaRegistracije(ActionEvent actionEvent) throws HealthyShopException {
 
         List<Korisnik> listaRegKorisnika = korisnikManager.dajSveKorisnike();
+        ModelManager model = ModelManager.getInstance();
 
         String unesenoIme = idIme.getText();
         String unesenoPrezime = idPrezime.getText();
@@ -117,6 +122,7 @@ public class RegistracijaController {
             k.setAdresa(unesenaAdresa);
             k.setEmail(uneseniEmail);
             k.setSifra(uneseniPassword);
+            model.setKorisnik(k);
 
             try {
                 FileReader r = new FileReader("src/main/resources/database.properties");

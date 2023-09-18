@@ -1,5 +1,6 @@
 package ba.unsa.etf.rpr.controllers;
 
+import ba.unsa.etf.rpr.business.ModelManager;
 import ba.unsa.etf.rpr.exceptions.HealthyShopException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,7 +21,7 @@ public class PotvrdaNarudzbeController {
 
     @FXML
     public void initialize() throws HealthyShopException {
-        Model model = Model.getInstance();
+        ModelManager model = ModelManager.getInstance();
         idLabela.setText("Hvala, " + model.getKorisnik().getIme() + " " + model.getKorisnik().getPrezime() + "!");
     }
 

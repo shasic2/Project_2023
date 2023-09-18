@@ -82,7 +82,7 @@ public class AppTest {
 
     @Test
     public void Test6(){
-        Narudzba n1 = new Narudzba(1, 1, 6);
+        Narudzba n1 = new Narudzba(1, 1, 6, "Kokosova Kuglica ");
         assertEquals(n1.getRacun(), p.getCijena());
     }
 

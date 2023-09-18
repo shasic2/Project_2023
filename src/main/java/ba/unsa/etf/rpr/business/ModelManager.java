@@ -5,6 +5,10 @@ import ba.unsa.etf.rpr.domain.Korisnik;
 import ba.unsa.etf.rpr.domain.Narudzba;
 import ba.unsa.etf.rpr.domain.Proizvodi;
 
+/**
+ * Klasa napravljena za praćenje trenutnih podataka u aplikaciji
+ */
+
 public class ModelManager {
     private static ModelManager instance;
     private Kategorije kategorija;
@@ -20,11 +24,11 @@ public class ModelManager {
         return instance;
     }
 
-    public Kategorije getKategorija() {
+    public Kategorije getKategorije() {
         return kategorija;
     }
 
-    public void setKategorija(Kategorije kategorija) {
+    public void setKategorije(Kategorije kategorija) {
         this.kategorija = kategorija;
     }
 

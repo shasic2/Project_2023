@@ -37,8 +37,8 @@ public class NarudzbaProizvodaDaoSQLImpl extends AbstractDao<NarudzbaProizvoda> 
         try {
             NarudzbaProizvoda np = new NarudzbaProizvoda();
             np.setId(rs.getInt("id"));
-            np.setProizvod_id(DaoFactory.proizvodiDao().getById(rs.getInt("id_proizvod")));
-            np.setNarudzba_id(DaoFactory.narudzbaDao().getById(rs.getInt("id_narudzba")));
+            np.setProizvod_id(DaoFactory.proizvodiDao().getById(rs.getInt("proizvod_id")));
+            np.setNarudzba_id(DaoFactory.narudzbaDao().getById(rs.getInt("narudzba_id")));
             return np;
         } catch (Exception e) {
             throw new HealthyShopException(e.getMessage(), e);
@@ -49,8 +49,8 @@ public class NarudzbaProizvodaDaoSQLImpl extends AbstractDao<NarudzbaProizvoda> 
     public Map<String, Object> object2row(NarudzbaProizvoda object) {
         Map<String, Object> item = new TreeMap<>();
         item.put("id", object.getId());
-        item.put("id_narudzba", object.getNarudzba_id().getId());
-        item.put("id_proizvod", object.getProizvod_id().getId());
+        item.put("narudzba_id", object.getNarudzba_id().getId());
+        item.put("proizvod_id", object.getProizvod_id().getId());
         return item;
     }
 
