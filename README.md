@@ -1,8 +1,8 @@
 # Healthy shop
 
 
-Projekat je rađen na predmetu "Razvoj programskih rješenja 2022/2023" na Elektrotehničkom fakultetu Univerziteta u Sarajevu,
-i zasnovan je na prodaji zdravih namirnica (pića i grickalica).
+Projekat je rađen na predmetu "Razvoj programskih rješenja 2022/2023" na Elektrotehničkom fakultetu Univerziteta u Sarajevu.
+Zasnovan je na prodaji zdravih napitaka i užina, donoseći osvežavajuće i hranljive opcije za svakodnevni život
 U nastavku ću prikazati kroz par slika kako aplikacija funkcioniše.
 
 ### Početna stranica ujedno i prozor za prijavu
